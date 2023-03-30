@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const pedidos = fs.readdirSync("./data/Pedidos");
 
 function lerPedidosDiretorio(diretorio) {
   const arquivos = fs.readdirSync(diretorio);
@@ -32,18 +31,23 @@ function lerPedidosDiretorio(diretorio) {
           valor_unitário_produto: parseFloat(pedido.valor_unitário_produto.replace(',', '.')),
         };
       } catch (error) {
-        throw new Error(`Pedido inválido no arquivo ${id}: ${linha}`);
+        // Poderíamos criar uma exceção com throw, mas isso interromperia o código e não seria possível prosseguir.
+        // throw new Error(`Pedido inválido no arquivo ${id}: ${linha}`);
+        console.error(`Pedido inválido no arquivo ${id}: ${linha}`);
+        console.error(error);
       }
     });
   }).flat().filter(Boolean);
 
   const numeroItens = new Set(pedidos.map(pedido => pedido.número_item));
   if (pedidos.length !== numeroItens.size || numeroItens.has(null) || !numeroItens.has(1) || !numeroItens.has(Math.max(...numeroItens))) {
-    throw new Error('Pedidos inválidos');
+    // Poderíamos criar uma exceção com throw, mas isso interromperia o código e não seria possível prosseguir.
+    // throw new Error('Pedidos inválidos');
+    console.error('Pedidos inválidos');
   }
 
   return pedidos;
 }
 
-// const pedidos = lerPedidosDiretorio("../data/Pedidos");
+const pedidos = lerPedidosDiretorio("./backend/src/data/Pedidos");
 console.log(pedidos);
