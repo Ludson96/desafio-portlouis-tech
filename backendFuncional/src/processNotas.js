@@ -1,41 +1,53 @@
-import validInputs from './middleware/validInputsPedidos';
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import validInputsNotas from './helpers/validInputsNotas.js';
 
-function lerNotasDiretorio(diretorio) {
-  const arquivos = fs.readdirSync(diretorio);
+async function lerNotasDiretorio() {
+  const arquivos = fs.readdirSync('./src/data/Pedidos');
 
-  const notas = arquivos.map((arquivo) => {
+  const notas = await Promise.all(arquivos.map(async (arquivo) => {
     const id = path.parse(arquivo).name;
-    const conteudo = fs.readFileSync(path.join(diretorio, arquivo), 'utf8');
+    const conteudo = fs.readFileSync(path.join('./src/data/Pedidos', arquivo), 'utf8');
 
-    return conteudo.split('\n').map((linha) => {
-      if (!linha.trim()) return null;
+    let todasNotas = [];
 
-      try {
-        const notas = JSON.parse(linha);
-        validInputs(notas, id, linha);
-        return {
-          id,
-          id_pedido: notas.id_pedido,
-          número_item: notas.número_item,
-          quantidade_produto: notas.quantidade_produto,
-        };
-      } catch (error) {
-        console.error(error);
-        throw new Error(`Pedido inválido no arquivo ${id}: ${linha}`);
-      }
-    });
-  }).flat().filter(Boolean);
+    await Promise.all(
+      conteudo
+        .replace(/\r\n|\r|\n/g, '\r\n') // adiciona quebra de linha no final de cada linha
+        .trim() // remove espaços em branco no início e no final
+        .split('\r\n') // divide em um array de linhas
+        .map(async (linha, index) => {
+          if (!linha.trim()) return null;
 
-  const numeroItens = new Set(notas.map((nota) => nota.número_item));
-  if (notas.length !== numeroItens.size || numeroItens.has(null) || !numeroItens.has(1) || !numeroItens.has(Math.max(...numeroItens))) {
-    ('Pedidos inválidos');
-  }
+          try {
+            const nota = JSON.parse(linha);
 
-  fs.writeFile('./backend/src/data/readAllNotas', notas);
+            validInputsNotas(nota, id, linha);
+
+            // if (todasNotas.some(item => item.id_pedido === nota.id_pedido)) {
+            //   throw new Error(`id_pedido já existe ${index + 1} do arquivo ${id}`);
+            // }
+
+            todasNotas.push({
+              número_item: nota.número_item,
+              código_produto: nota.código_produto,
+              quantidade_produto: nota.quantidade_produto,
+              valor_unitário_produto: nota.valor_unitário_produto,
+            })
+
+          } catch (error) {
+            console.error(error.message)
+            throw new Error(`Erro linha: ${index + 1} do arquivo ${id}`);
+          }
+        })
+    );
+
+    const resultFinal = { id, pedidos: todasNotas}
+    return resultFinal;
+  }));
+
   return notas;
 }
 
-const pedidos = lerNotasDiretorio('./backend/src/data/Pedidos');
-console.log(pedidos);
+const pedidos = await lerNotasDiretorio('./src/data/Pedidos');
+fs.writeFileSync('./src/data/readAllPedidos.txt', JSON.stringify(pedidos, null, 2));

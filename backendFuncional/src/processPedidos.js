@@ -3,7 +3,7 @@ import path from 'path';
 import validInputs from './helpers/validInputsPedidos.js';
 import checkAscendingSequence from './helpers/checkAscendingSequence.js'
 
-async function lerPedidosDiretorio(diretorio) {
+export default async function lerPedidosDiretorio(diretorio) {
   const arquivos = fs.readdirSync(diretorio);
 
   const pedidos = await Promise.all(arquivos.map(async (arquivo) => {
@@ -12,7 +12,7 @@ async function lerPedidosDiretorio(diretorio) {
 
     let todosPedidos = [];
 
-    const resultado = await Promise.all(
+    await Promise.all(
       conteudo
         .replace(/\r\n|\r|\n/g, '\r\n') // adiciona quebra de linha no final de cada linha
         .trim() // remove espaços em branco no início e no final
@@ -32,12 +32,13 @@ async function lerPedidosDiretorio(diretorio) {
               throw new Error(`Numero item já existe ${index + 1} do arquivo ${id}`);
             }
 
-            return {
+            todosPedidos.push({
               número_item: pedido.número_item,
               código_produto: pedido.código_produto,
               quantidade_produto: pedido.quantidade_produto,
               valor_unitário_produto: pedido.valor_unitário_produto,
-            };
+            })
+
           } catch (error) {
             console.error(error.message)
             throw new Error(`Erro ao fazer parse da linha ${index + 1} do arquivo ${id}`);
@@ -45,10 +46,8 @@ async function lerPedidosDiretorio(diretorio) {
         })
     );
 
-    todosPedidos = resultado.filter(item => item !== null);
     checkAscendingSequence(todosPedidos)
     const resultFinal = { id, pedidos: todosPedidos}
-    console.log("🚀 ~ file: processPedidos.js:51 ~ pedidos ~ resultFinal:", resultFinal)
     return resultFinal;
   }));
 

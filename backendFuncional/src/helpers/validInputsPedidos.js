@@ -7,7 +7,7 @@ const pedidoSchema = Joi.object({
   valor_unitário_produto: Joi.number().min(0.01).required(),
 });
 
-export default function validInputs(pedido, id, linha) {
+export default function validInputsPedidos(pedido, id, linha) {
   const { error } = pedidoSchema.validate(pedido);
 
   if (error) {
