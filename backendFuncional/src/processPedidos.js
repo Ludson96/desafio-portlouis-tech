@@ -23,7 +23,8 @@ async function lerPedidosDiretorio(diretorio) {
           try {
             const pedido = JSON.parse(linha);
 
-            pedido.valor_unitário_produto = Number(pedido.valor_unitário_produto.replace(',', '.')).toFixed(2);
+            pedido.valor_unitário_produto = parseFloat(pedido.valor_unitário_produto.replace(',', '.')).toFixed(2);
+
 
             validInputs(pedido, id, linha);
 
@@ -38,6 +39,7 @@ async function lerPedidosDiretorio(diretorio) {
               valor_unitário_produto: pedido.valor_unitário_produto,
             };
           } catch (error) {
+            console.error(error.message)
             throw new Error(`Erro ao fazer parse da linha ${index + 1} do arquivo ${id}`);
           }
         })
@@ -46,6 +48,7 @@ async function lerPedidosDiretorio(diretorio) {
     todosPedidos = resultado.filter(item => item !== null);
     checkAscendingSequence(todosPedidos)
     const resultFinal = { id, pedidos: todosPedidos}
+    console.log("🚀 ~ file: processPedidos.js:51 ~ pedidos ~ resultFinal:", resultFinal)
     return resultFinal;
   }));
 
@@ -53,12 +56,4 @@ async function lerPedidosDiretorio(diretorio) {
 }
 
 const pedidos = await lerPedidosDiretorio('./src/data/Pedidos');
-console.log("🚀 ~ file: processPedidos.js:60 ~ pedidos:", pedidos)
 fs.writeFileSync('./src/data/readAllPedidos.txt', JSON.stringify(pedidos, null, 2));
-
-
-
-
-
-
-
