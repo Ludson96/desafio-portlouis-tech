@@ -2,7 +2,6 @@ export default function checkAscendingSequence(conteudo) {
   conteudo.sort((a, b) => {
     return a.número_item - b.número_item
   })
-  console.log("🚀 ~ file: checkAscendingSequence.js:3 ~ checkAscendingSequence ~ conteudo:", conteudo)
   
   let valorEsperado = 0;
 

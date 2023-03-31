@@ -5,7 +5,7 @@
   "description": "Repositorio do desafio tecnico realizado para a empresa PortLuis.Tech",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/processPedidos.js"
+    "start": "node ./src/processNotas.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/Ludson96/desafio-portlouis.tech#readme",
   "devDependencies": {
-    "eslint": "^8.37.0",
     "eslint-config-trybe-backend": "^2.1.0",
     "eslint-plugin-sonarjs": "^0.19.0"
   },

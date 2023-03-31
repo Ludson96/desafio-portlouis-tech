@@ -1,16 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import validInputsNotas from './helpers/validInputsNotas.js';
-import validIdAndNum from './helpers/validIdAndNum.js'
+import validIdAndNum from './helpers/validIdAndNum.js';
 
 async function lerNotasDiretorio() {
-  const arquivos = fs.readdirSync('./src/data/Pedidos');
+  const arquivos = fs.readdirSync('./src/data/Notas');
 
   const notas = await Promise.all(arquivos.map(async (arquivo) => {
     const id = path.parse(arquivo).name;
-    const conteudo = fs.readFileSync(path.join('./src/data/Pedidos', arquivo), 'utf8');
+    const conteudo = fs.readFileSync(path.join('./src/data/Notas', arquivo), 'utf8');
 
-    let todasNotas = [];
+    const todasNotas = [];
 
     await Promise.all(
       conteudo
@@ -23,29 +23,30 @@ async function lerNotasDiretorio() {
           try {
             const nota = JSON.parse(linha);
 
+            nota.id_pedido = nota.id_pedido.toString();
+
             validInputsNotas(nota, id, linha);
-            validIdAndNum(todasNotas, nota, id, index)
+            console.log('🚀 ~ file: processNotas.js:36 ~ .map ~ todasNotas:', todasNotas);
+            validIdAndNum(todasNotas, nota, id, index);
 
             todasNotas.push({
+              id_pedido: nota.id_pedido,
               número_item: nota.número_item,
-              código_produto: nota.código_produto,
               quantidade_produto: nota.quantidade_produto,
-              valor_unitário_produto: nota.valor_unitário_produto,
-            })
-
+            });
           } catch (error) {
-            console.error(error.message)
+            console.error(error.message);
             throw new Error(`Erro linha: ${index + 1} do arquivo ${id}`);
           }
-        })
+        }),
     );
 
-    const resultFinal = { id, notas: todasNotas}
+    const resultFinal = { id, notas: todasNotas };
     return resultFinal;
   }));
 
   return notas;
 }
 
-const pedidos = await lerNotasDiretorio('./src/data/Pedidos');
-fs.writeFileSync('./src/data/readAllPedidos.txt', JSON.stringify(pedidos, null, 2));
+const pedidos = lerNotasDiretorio();
+fs.writeFileSync('./src/data/readAllNotas.txt', JSON.stringify(pedidos, null, 2));
