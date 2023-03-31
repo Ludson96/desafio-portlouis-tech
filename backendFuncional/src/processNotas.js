@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import validInputsNotas from './helpers/validInputsNotas.js';
-import validIdAndNum from './helpers/validIdAndNum.js';
+import verificarDuplicatas from './helpers/validIdAndNum.js';
 
 async function lerNotasDiretorio() {
   const arquivos = fs.readdirSync('./src/data/Notas');
@@ -26,8 +26,6 @@ async function lerNotasDiretorio() {
             nota.id_pedido = nota.id_pedido.toString();
 
             validInputsNotas(nota, id, linha);
-            console.log('🚀 ~ file: processNotas.js:36 ~ .map ~ todasNotas:', todasNotas);
-            validIdAndNum(todasNotas, nota, id, index);
 
             todasNotas.push({
               id_pedido: nota.id_pedido,
@@ -42,6 +40,9 @@ async function lerNotasDiretorio() {
     );
 
     const resultFinal = { id, notas: todasNotas };
+    verificarDuplicatas(todasNotas);
+    console.log(resultFinal)
+
     return resultFinal;
   }));
 
@@ -49,4 +50,4 @@ async function lerNotasDiretorio() {
 }
 
 const pedidos = lerNotasDiretorio();
-fs.writeFileSync('./src/data/readAllNotas.txt', JSON.stringify(pedidos, null, 2));
+// fs.writeFileSync('./src/data/readAllNotas.txt', JSON.stringify(pedidos, null, 2));
