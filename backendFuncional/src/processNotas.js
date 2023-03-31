@@ -22,19 +22,15 @@ function lerNotasDiretorio(diretorio) {
           quantidade_produto: notas.quantidade_produto,
         };
       } catch (error) {
-        // Poderíamos criar uma exceção com throw, mas isso interromperia o código e não seria possível prosseguir.
-        // throw new Error(`Pedido inválido no arquivo ${id}: ${linha}`);
-        console.error(`Nota inválido no arquivo ${id}: ${linha}`);
         console.error(error);
+        throw new Error(`Pedido inválido no arquivo ${id}: ${linha}`);
       }
     });
   }).flat().filter(Boolean);
 
   const numeroItens = new Set(notas.map((nota) => nota.número_item));
   if (notas.length !== numeroItens.size || numeroItens.has(null) || !numeroItens.has(1) || !numeroItens.has(Math.max(...numeroItens))) {
-    // Poderíamos criar uma exceção com throw, mas isso interromperia o código e não seria possível prosseguir.
-    // throw new Error('Pedidos inválidos');
-    console.error('Pedidos inválidos');
+    ('Pedidos inválidos');
   }
 
   fs.writeFile('./backend/src/data/readAllNotas', notas);
