@@ -3,12 +3,12 @@ import path from 'path';
 import validInputs from './helpers/validInputsPedidos.js';
 import checkAscendingSequence from './helpers/checkAscendingSequence.js'
 
-export default async function lerPedidosDiretorio(diretorio) {
-  const arquivos = fs.readdirSync(diretorio);
+export default async function lerPedidosDiretorio() {
+  const arquivos = fs.readdirSync('./src/data/Pedidos');
 
   const pedidos = await Promise.all(arquivos.map(async (arquivo) => {
     const id = path.parse(arquivo).name;
-    const conteudo = fs.readFileSync(path.join(diretorio, arquivo), 'utf8');
+    const conteudo = fs.readFileSync(path.join('./src/data/Pedidos', arquivo), 'utf8');
 
     let todosPedidos = [];
 
@@ -54,5 +54,5 @@ export default async function lerPedidosDiretorio(diretorio) {
   return pedidos;
 }
 
-const pedidos = await lerPedidosDiretorio('./src/data/Pedidos');
+const pedidos = await lerPedidosDiretorio();
 fs.writeFileSync('./src/data/readAllPedidos.txt', JSON.stringify(pedidos, null, 2));

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import validInputsNotas from './helpers/validInputsNotas.js';
+import validIdAndNum from './helpers/validIdAndNum.js'
 
 async function lerNotasDiretorio() {
   const arquivos = fs.readdirSync('./src/data/Pedidos');
@@ -23,10 +24,7 @@ async function lerNotasDiretorio() {
             const nota = JSON.parse(linha);
 
             validInputsNotas(nota, id, linha);
-
-            // if (todasNotas.some(item => item.id_pedido === nota.id_pedido)) {
-            //   throw new Error(`id_pedido já existe ${index + 1} do arquivo ${id}`);
-            // }
+            validIdAndNum(todasNotas, nota, id, index)
 
             todasNotas.push({
               número_item: nota.número_item,
@@ -42,7 +40,7 @@ async function lerNotasDiretorio() {
         })
     );
 
-    const resultFinal = { id, pedidos: todasNotas}
+    const resultFinal = { id, notas: todasNotas}
     return resultFinal;
   }));
 
