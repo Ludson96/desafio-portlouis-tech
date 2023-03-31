@@ -1,6 +1,6 @@
 [
   {
-    "id": "P1",
+    "id": "1",
     "pedidos": [
       {
         "número_item": 1,
@@ -29,7 +29,7 @@
     ]
   },
   {
-    "id": "P2",
+    "id": "2",
     "pedidos": [
       {
         "número_item": 1,
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "id": "P3",
+    "id": "3",
     "pedidos": [
       {
         "número_item": 1,
@@ -87,7 +87,7 @@
     ]
   },
   {
-    "id": "P4",
+    "id": "4",
     "pedidos": [
       {
         "número_item": 1,
@@ -110,7 +110,7 @@
     ]
   },
   {
-    "id": "P5",
+    "id": "5",
     "pedidos": [
       {
         "número_item": 1,

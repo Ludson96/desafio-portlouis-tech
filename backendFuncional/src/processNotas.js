@@ -3,7 +3,7 @@ import path from 'path';
 import validInputsNotas from './helpers/validInputsNotas.js';
 import verificarDuplicatas from './helpers/validIdAndNum.js';
 
-async function lerNotasDiretorio() {
+export default async function lerNotasDiretorio() {
   const arquivos = fs.readdirSync('./src/data/Notas');
 
   const notas = await Promise.all(arquivos.map(async (arquivo) => {
@@ -41,13 +41,8 @@ async function lerNotasDiretorio() {
 
     const resultFinal = { id, notas: todasNotas };
     verificarDuplicatas(todasNotas);
-    console.log(resultFinal)
-
     return resultFinal;
   }));
 
   return notas;
 }
-
-const pedidos = lerNotasDiretorio();
-// fs.writeFileSync('./src/data/readAllNotas.txt', JSON.stringify(pedidos, null, 2));
