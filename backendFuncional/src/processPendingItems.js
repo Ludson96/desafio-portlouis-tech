@@ -35,8 +35,6 @@ export default async function processaItensPendentes() {
     }
   }
 
-  console.log("🚀 ~ file: processPendingItems.js:79 ~ processaItensPendentes ~ totalQuantidade:", totalQuantidade)
-
   const pendentes = [];
   allPedidos.forEach((pedidos) => {
     totalQuantidade.forEach((nota) => {

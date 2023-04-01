@@ -5,7 +5,7 @@
   "description": "Repositorio do desafio tecnico realizado para a empresa PortLuis.Tech",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/processPendingItems.js"
+    "start": "node ./src"
   },
   "repository": {
     "type": "git",
