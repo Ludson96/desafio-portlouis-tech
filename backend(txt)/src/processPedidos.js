@@ -51,8 +51,6 @@ export default async function lerPedidosDiretorio() {
     return resultFinal;
   }));
 
+  fs.writeFileSync('./src/data/allPedidos.txt', JSON.stringify(pedidos, null, 2));
   return pedidos;
 }
-
-const pedidos = await lerPedidosDiretorio();
-fs.writeFileSync('./src/data/readAllPedidos.txt', JSON.stringify(pedidos, null, 2));

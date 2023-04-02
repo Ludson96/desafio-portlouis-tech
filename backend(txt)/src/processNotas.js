@@ -44,5 +44,6 @@ export default async function lerNotasDiretorio() {
     return resultFinal;
   }));
 
+  fs.writeFileSync('./src/data/allNotas.txt', JSON.stringify(notas, null, 2));
   return notas;
 }
