@@ -45,6 +45,8 @@ export default async function processaItensPendentes() {
             diferenca = pedido.quantidade_produto - nota.totalQuantidade
             if(diferenca > 0) {
               pendentes.push({ itensFaltantes: diferenca ,...nota })
+            } else if(diferenca < 0) {
+              throw new Error(`Nota emitida com numero de quantidade maior do que o pedido`);
             }
           }
         })

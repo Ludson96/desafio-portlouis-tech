@@ -46,7 +46,6 @@ async function createFinalRelationship() {
   );
 
   const pendentesFiltered = allPedidosPendentes.filter((pedido) => pedido.id !== 0);
-  console.log("🚀 ~ file: index.js:49 ~ createFinalRelationship ~ pendentesFiltered:", pendentesFiltered)
   fs.writeFileSync('./src/data/Notas.txt', JSON.stringify(pendentesFiltered, null, 2));
 }
 
