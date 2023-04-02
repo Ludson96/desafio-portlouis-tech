@@ -1,6 +1,6 @@
 import fs from 'fs';
-import processaItensPendentes from "./processPendingItems.js";
-import processPedidos from "./processPedidos.js";
+import processaItensPendentes from './processPendingItems.js';
+import processPedidos from './processPedidos.js';
 
 async function createFinalRelationship() {
   const allPedidos = await processPedidos();
@@ -39,13 +39,14 @@ async function createFinalRelationship() {
         id,
         valor_total_pedido: parseFloat(valorTotal).toFixed(2),
         saldo_valor: parseFloat(valorTotalPendente).toFixed(2),
-        pendentes
+        pendentes,
       };
       return allPendentes;
-    })
+    }),
   );
 
   const pendentesFiltered = allPedidosPendentes.filter((pedido) => pedido.id !== 0);
+  console.log("🚀 ~ file: index.js:49 ~ creatxeFinalRelationship ~ pendentesFiltered:", pendentesFiltered)
   fs.writeFileSync('./src/data/Notas.txt', JSON.stringify(pendentesFiltered, null, 2));
 }
 

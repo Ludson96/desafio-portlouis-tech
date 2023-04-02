@@ -1,4 +1,8 @@
-// {
-//   "root": true,
-//   "extends": ["trybe-backend"]
-// }
+{
+  "root": true,
+  "extends": ["trybe-backend"],
+  "rules": {
+    "import/extensions": "off",
+    "camelcase": "off"
+  }
+}

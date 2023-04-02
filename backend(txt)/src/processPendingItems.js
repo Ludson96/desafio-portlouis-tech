@@ -1,21 +1,7 @@
-import processPedidos from "./processPedidos.js"
-import processNotas from "./processNotas.js"
+import processPedidos from './processPedidos.js';
+import processNotas from './processNotas.js';
 
-export default async function processaItensPendentes() {
-  const allPedidos = await processPedidos()
-  const allNotas = await processNotas()
-
-  const pedidos = [];
-  allPedidos.forEach((p) => {
-    allNotas.forEach((n) => {
-      n.notas.filter((nota) => {
-        if (nota.id_pedido === p.id) {
-          pedidos.push(nota)
-        }
-      })
-    })
-  })
-
+function agruparPorPedido(pedidos) {
   const agrupadosPorPedido = pedidos.reduce((acc, pedido) => {
     const { id_pedido, número_item, quantidade_produto } = pedido;
     const chave = `${id_pedido}-${número_item}`;
@@ -26,32 +12,73 @@ export default async function processaItensPendentes() {
     }
     return acc;
   }, {});
-  
-  const totalQuantidade = [];
-  for (const [id_pedido, itens] of Object.entries(agrupadosPorPedido)) {
-    for (const [chave, total] of Object.entries(itens)) {
-      const [_, número_item] = chave.split('-');
-      totalQuantidade.push({ id_pedido, número_item: Number(número_item), totalQuantidade: total });
-    }
+  return agrupadosPorPedido;
+}
+
+function getTotalQuantidade(agrupadosPorPedido) {
+  const totalQuantidade = Object.entries(agrupadosPorPedido)
+    .flatMap(([id_pedido, itens]) => Object.entries(itens)
+      .map(([chave, total]) => {
+        const número_item = chave.split('-')[1];
+        return {
+          id_pedido,
+          número_item: Number(número_item),
+          totalQuantidade: total,
+        };
+      }));
+
+  return totalQuantidade;
+}
+
+function compareQuantidades(pedido, nota) {
+  const itemPedido = pedido.pedidos.find((p) => p.número_item === nota.número_item);
+  if (!itemPedido) {
+    return null;
   }
 
-  const pendentes = [];
-  allPedidos.forEach((pedidos) => {
+  const diferenca = itemPedido.quantidade_produto - nota.totalQuantidade;
+  if (diferenca > 0) {
+    return { itensFaltantes: diferenca, ...nota };
+  } if (diferenca < 0) {
+    throw new Error('Nota emitida com numero de quantidade maior do que o pedido');
+  } else {
+    return null;
+  }
+}
+
+function getPendentes(allPedidos, totalQuantidade, pendentes) {
+  allPedidos.forEach((pedido) => {
     totalQuantidade.forEach((nota) => {
-      let diferenca = 0;
-      if(pedidos.id === nota.id_pedido) {
-        pedidos.pedidos.forEach((pedido) => {
-          if(pedido.número_item === nota.número_item) {
-            diferenca = pedido.quantidade_produto - nota.totalQuantidade
-            if(diferenca > 0) {
-              pendentes.push({ itensFaltantes: diferenca ,...nota })
-            } else if(diferenca < 0) {
-              throw new Error(`Nota emitida com numero de quantidade maior do que o pedido`);
-            }
-          }
-        })
+      if (pedido.id === nota.id_pedido) {
+        const diferenca = compareQuantidades(pedido, nota);
+        if (diferenca) {
+          pendentes.push(diferenca);
+        }
       }
-    })
-  })
-  return pendentes
+    });
+  });
+}
+
+export default async function processaItensPendentes() {
+  const allPedidos = await processPedidos();
+  const allNotas = await processNotas();
+
+  const pedidos = [];
+  allPedidos.forEach((p) => {
+    allNotas.forEach((n) => {
+      n.notas.forEach((nota) => {
+        if (nota.id_pedido === p.id) {
+          pedidos.push(nota);
+        }
+      });
+    });
+  });
+
+  const agrupadosPorPedido = agruparPorPedido(pedidos);
+
+  const totalQuantidade = getTotalQuantidade(agrupadosPorPedido);
+
+  const pendentes = [];
+  getPendentes(allPedidos, totalQuantidade, pendentes);
+  return pendentes;
 }

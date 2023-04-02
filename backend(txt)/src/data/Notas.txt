@@ -1,8 +1,8 @@
 [
   {
     "id": "3",
-    "valor_total_pedido": "8001.00",
-    "saldo_valor": "1847.00",
+    "valor_total_pedido": "2295.00",
+    "saldo_valor": "413.00",
     "pendentes": [
       {
         "número_item": 2,
@@ -32,8 +32,8 @@
   },
   {
     "id": "5",
-    "valor_total_pedido": "7200.00",
-    "saldo_valor": "1861.80",
+    "valor_total_pedido": "1764.00",
+    "saldo_valor": "450.90",
     "pendentes": [
       {
         "número_item": 4,
