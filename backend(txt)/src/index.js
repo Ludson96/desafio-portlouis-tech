@@ -2,11 +2,8 @@ import fs from 'fs';
 import processaItensPendentes from './processPendingItems.js';
 import processPedidos from './processPedidos.js';
 
-async function createFinalRelationship() {
-  const allPedidos = await processPedidos();
-  const itemsPendentes = await processaItensPendentes();
-
-  const allPedidosPendentes = await Promise.all(
+async function getAllPedidosPendentes(allPedidos, itemsPendentes) {
+  return Promise.all(
     allPedidos.map((pedidos) => {
       let id = 0;
       let valorTotal = 0;
@@ -44,10 +41,23 @@ async function createFinalRelationship() {
       return allPendentes;
     }),
   );
+}
 
-  const pendentesFiltered = allPedidosPendentes.filter((pedido) => pedido.id !== 0);
-  console.log("🚀 ~ file: index.js:49 ~ creatxeFinalRelationship ~ pendentesFiltered:", pendentesFiltered)
-  fs.writeFileSync('./src/data/Notas.txt', JSON.stringify(pendentesFiltered, null, 2));
+function filterPedidos(allPedidosPendentes) {
+  return allPedidosPendentes.filter((pedido) => pedido.id !== 0);
+}
+
+function savePedidos(pendentesFiltered) {
+  fs.writeFileSync('./src/data/pedidosPendentes.txt', JSON.stringify(pendentesFiltered, null, 2));
+}
+
+async function createFinalRelationship() {
+  const allPedidos = await processPedidos();
+  const itemsPendentes = await processaItensPendentes();
+  const allPedidosPendentes = await getAllPedidosPendentes(allPedidos, itemsPendentes);
+  const pendentesFiltered = filterPedidos(allPedidosPendentes);
+  console.log("🚀 ~ file: index.js:59 ~ createFinalRelationship ~ pendentesFiltered:", pendentesFiltered)
+  savePedidos(pendentesFiltered);
 }
 
 createFinalRelationship();
