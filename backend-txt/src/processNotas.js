@@ -3,7 +3,7 @@ import path from 'path';
 import validInputsNotas from './helpers/validInputsNotas.js';
 import verificarDuplicatas from './helpers/validIdAndNum.js';
 
-function addNotas(linha, id, todasNotas, index) {
+export function addNotas(linha, id, todasNotas, index) {
   try {
     const nota = JSON.parse(linha);
 
@@ -22,7 +22,7 @@ function addNotas(linha, id, todasNotas, index) {
   }
 }
 
-async function agruparTodasNotas(conteudo, id, todasNotas) {
+export async function agruparTodasNotas(conteudo, id, todasNotas) {
   await Promise.all(
     conteudo
       .replace(/\r\n|\r|\n/g, '\r\n') // adiciona quebra de linha no final de cada linha
@@ -36,12 +36,12 @@ async function agruparTodasNotas(conteudo, id, todasNotas) {
   );
 }
 
-export default async function lerNotasDiretorio() {
-  const arquivos = fs.readdirSync('./src/data/Notas');
+export default async function lerNotasDiretorio(diretorio) {
+  const arquivos = fs.readdirSync(diretorio);
 
   const notas = await Promise.all(arquivos.map(async (arquivo) => {
     const id = path.parse(arquivo).name;
-    const conteudo = fs.readFileSync(path.join('./src/data/Notas', arquivo), 'utf8');
+    const conteudo = fs.readFileSync(path.join(diretorio, arquivo), 'utf8');
 
     const todasNotas = [];
 
@@ -51,6 +51,8 @@ export default async function lerNotasDiretorio() {
     verificarDuplicatas(todasNotas);
     return resultFinal;
   }));
+
+  fs.writeFileSync('./src/data/allNotas.txt', JSON.stringify(notas, null, 2));
 
   return notas;
 }

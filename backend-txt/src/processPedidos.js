@@ -42,12 +42,12 @@ async function agruparTodosPedidos(conteudo, todosPedidos, id) {
   );
 }
 
-export default async function lerPedidosDiretorio() {
-  const arquivos = fs.readdirSync('./src/data/Pedidos');
+export default async function lerPedidosDiretorio(diretorio) {
+  const arquivos = fs.readdirSync(diretorio);
 
   const pedidos = await Promise.all(arquivos.map(async (arquivo) => {
     const id = path.parse(arquivo).name;
-    const conteudo = fs.readFileSync(path.join('./src/data/Pedidos', arquivo), 'utf8');
+    const conteudo = fs.readFileSync(path.join(diretorio, arquivo), 'utf8');
 
     const todosPedidos = [];
 
@@ -57,6 +57,8 @@ export default async function lerPedidosDiretorio() {
     const resultFinal = { id, pedidos: todosPedidos };
     return resultFinal;
   }));
+
+  fs.writeFileSync('./src/data/allPedidos.txt', JSON.stringify(pedidos, null, 2));
 
   return pedidos;
 }

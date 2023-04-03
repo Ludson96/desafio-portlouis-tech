@@ -52,7 +52,7 @@ function savePedidos(pendentesFiltered) {
 }
 
 export default async function createFinalRelationship() {
-  const allPedidos = await processPedidos();
+  const allPedidos = await processPedidos('./src/data/Pedidos');
   const itemsPendentes = await processaItensPendentes();
   const allPedidosPendentes = await getAllPedidosPendentes(allPedidos, itemsPendentes);
   const pendentesFiltered = filterPedidos(allPedidosPendentes);

@@ -8,7 +8,4 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  collectCoverage: true,
-  coverageDirectory: 'coverage',
-  coverageReporters: ['html', 'text'],
 };

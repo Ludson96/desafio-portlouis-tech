@@ -1,3 +1,4 @@
+import fs from 'fs';
 import processPedidos from './processPedidos.js';
 import processNotas from './processNotas.js';
 
@@ -60,8 +61,8 @@ function getPendentes(allPedidos, totalQuantidade, pendentes) {
 }
 
 export default async function processaItensPendentes() {
-  const allPedidos = await processPedidos();
-  const allNotas = await processNotas();
+  const allPedidos = await processPedidos('./src/data/Pedidos');
+  const allNotas = await processNotas('./src/data/Notas');
 
   const pedidos = [];
   allPedidos.forEach((p) => {
@@ -80,5 +81,6 @@ export default async function processaItensPendentes() {
 
   const pendentes = [];
   getPendentes(allPedidos, totalQuantidade, pendentes);
+  fs.writeFileSync('./src/data/itensPendentes.txt', JSON.stringify(pendentes, null, 2));
   return pendentes;
 }
