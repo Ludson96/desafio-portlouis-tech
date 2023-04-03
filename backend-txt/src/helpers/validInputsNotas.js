@@ -6,9 +6,8 @@ const notasSchema = Joi.object({
   quantidade_produto: Joi.number().integer().min(1).required(),
 });
 
-export default function validInputsNotas(notas, id, linha) {
-  const { error } = notasSchema.validate(notas);
-
+export default function validInputsNotas(nota, id, linha) {
+  const { error } = notasSchema.validate(nota, { convert: false });
   if (error) {
     throw new Error(`Nota inválida no arquivo ${id}: ${linha}. Erro: ${error.message}`);
   }
