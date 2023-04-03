@@ -51,12 +51,11 @@ function savePedidos(pendentesFiltered) {
   fs.writeFileSync('./src/data/pedidosPendentes.txt', JSON.stringify(pendentesFiltered, null, 2));
 }
 
-async function createFinalRelationship() {
+export default async function createFinalRelationship() {
   const allPedidos = await processPedidos();
   const itemsPendentes = await processaItensPendentes();
   const allPedidosPendentes = await getAllPedidosPendentes(allPedidos, itemsPendentes);
   const pendentesFiltered = filterPedidos(allPedidosPendentes);
-  console.log("🚀 ~ file: index.js:59 ~ createFinalRelationship ~ pendentesFiltered:", pendentesFiltered)
   savePedidos(pendentesFiltered);
 }
 
