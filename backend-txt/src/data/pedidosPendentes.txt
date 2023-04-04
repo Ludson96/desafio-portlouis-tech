@@ -1,64 +1,33 @@
 [
   {
     "id": "3",
-    "valor_total_pedido": "8001.00",
-    "saldo_valor": "1847.00",
     "pendentes": [
       {
-        "número_item": 2,
         "código_produto": "M2",
-        "valor_unitário_produto": "17.00",
+        "número_item": 2,
         "quantidade_faltante": 4,
+        "valor_total_pendente": "68.00",
         "valor_total_unitário": "255.00",
-        "valor_total_pendente": "68.00"
+        "valor_unitário_produto": "17.00"
       },
       {
-        "número_item": 3,
         "código_produto": "K73",
-        "valor_unitário_produto": "15.00",
+        "número_item": 3,
         "quantidade_faltante": 5,
+        "valor_total_pendente": "75.00",
         "valor_total_unitário": "1650.00",
-        "valor_total_pendente": "75.00"
+        "valor_unitário_produto": "15.00"
       },
       {
-        "número_item": 1,
         "código_produto": "A99",
-        "valor_unitário_produto": "10.00",
-        "quantidade_faltante": 27,
-        "valor_total_unitário": "390.00",
-        "valor_total_pendente": "270.00"
-      }
-    ]
-  },
-  {
-    "id": "5",
-    "valor_total_pedido": "7200.00",
-    "saldo_valor": "1861.80",
-    "pendentes": [
-      {
-        "número_item": 4,
-        "código_produto": "RR7",
-        "valor_unitário_produto": "45.00",
-        "quantidade_faltante": 9,
-        "valor_total_unitário": "945.00",
-        "valor_total_pendente": "405.00"
-      },
-      {
         "número_item": 1,
-        "código_produto": "AM9",
-        "valor_unitário_produto": "10.00",
-        "quantidade_faltante": 3,
-        "valor_total_unitário": "660.00",
-        "valor_total_pendente": "30.00"
-      },
-      {
-        "número_item": 6,
-        "código_produto": "YY6",
-        "valor_unitário_produto": "15.90",
-        "quantidade_faltante": 1,
-        "valor_total_unitário": "159.00",
-        "valor_total_pendente": "15.90"
+        "quantidade_faltante": 27,
+        "valor_total_pendente": "270.00",
+        "valor_total_unitário": "390.00",
+        "valor_unitário_produto": "10.00"
       }
-    ]
+    ],
+    "saldo_valor": "1847.00",
+    "valor_total_pedido": "8001.00"
   }
 ]

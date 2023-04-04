@@ -2,7 +2,7 @@ import fs from 'fs';
 import processaItensPendentes from './processPendingItems.js';
 import processPedidos from './processPedidos.js';
 
-async function getAllPedidosPendentes(allPedidos, itemsPendentes) {
+export async function getAllPedidosPendentes(allPedidos, itemsPendentes) {
   return Promise.all(
     allPedidos.map((pedidos) => {
       let id = 0;
@@ -43,11 +43,11 @@ async function getAllPedidosPendentes(allPedidos, itemsPendentes) {
   );
 }
 
-function filterPedidos(allPedidosPendentes) {
+export function filterPedidos(allPedidosPendentes) {
   return allPedidosPendentes.filter((pedido) => pedido.id !== 0);
 }
 
-function savePedidos(pendentesFiltered) {
+export function savePedidos(pendentesFiltered) {
   fs.writeFileSync('./src/data/pedidosPendentes.txt', JSON.stringify(pendentesFiltered, null, 2));
 }
 
