@@ -2,7 +2,7 @@ import fs from 'fs';
 import processPedidos from './processPedidos.js';
 import processNotas from './processNotas.js';
 
-function agruparPorPedido(pedidos) {
+export function agruparPorPedido(pedidos) {
   const agrupadosPorPedido = pedidos.reduce((acc, pedido) => {
     const { id_pedido, número_item, quantidade_produto } = pedido;
     const chave = `${id_pedido}-${número_item}`;
@@ -16,7 +16,7 @@ function agruparPorPedido(pedidos) {
   return agrupadosPorPedido;
 }
 
-function getTotalQuantidade(agrupadosPorPedido) {
+export function getTotalQuantidade(agrupadosPorPedido) {
   const totalQuantidade = Object.entries(agrupadosPorPedido)
     .flatMap(([id_pedido, itens]) => Object.entries(itens)
       .map(([chave, total]) => {
@@ -31,7 +31,7 @@ function getTotalQuantidade(agrupadosPorPedido) {
   return totalQuantidade;
 }
 
-function compareQuantidades(pedido, nota) {
+export function compareQuantidades(pedido, nota) {
   const itemPedido = pedido.pedidos.find((p) => p.número_item === nota.número_item);
   if (!itemPedido) {
     return null;
@@ -47,7 +47,7 @@ function compareQuantidades(pedido, nota) {
   }
 }
 
-function getPendentes(allPedidos, totalQuantidade, pendentes) {
+export function getPendentes(allPedidos, totalQuantidade, pendentes) {
   allPedidos.forEach((pedido) => {
     totalQuantidade.forEach((nota) => {
       if (pedido.id === nota.id_pedido) {
