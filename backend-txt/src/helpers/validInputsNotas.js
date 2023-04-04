@@ -11,4 +11,5 @@ export default function validInputsNotas(nota, id, linha) {
   if (error) {
     throw new Error(`Nota inválida no arquivo ${id}: ${linha}. Erro: ${error.message}`);
   }
+  return true;
 }
