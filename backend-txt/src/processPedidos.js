@@ -3,7 +3,7 @@ import path from 'path';
 import validInputs from './helpers/validInputsPedidos.js';
 import checkAscendingSequence from './helpers/checkAscendingSequence.js';
 
-function addPedidos(linha, todosPedidos, id, index) {
+export function addPedidos(linha, todosPedidos, id, index) {
   try {
     const pedido = JSON.parse(linha);
 
@@ -24,11 +24,11 @@ function addPedidos(linha, todosPedidos, id, index) {
     });
   } catch (error) {
     console.error(error.message);
-    throw new Error(`Erro ao fazer parse da linha ${index + 1} do arquivo ${id}`);
+    throw error;
   }
 }
 
-async function agruparTodosPedidos(conteudo, todosPedidos, id) {
+export async function agruparTodosPedidos(conteudo, todosPedidos, id) {
   await Promise.all(
     conteudo
       .replace(/\r\n|\r|\n/g, '\r\n') // adiciona quebra de linha no final de cada linha

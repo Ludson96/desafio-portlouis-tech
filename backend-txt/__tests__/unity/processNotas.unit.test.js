@@ -52,6 +52,9 @@ describe('Teste de unidade processNotas', function () {
       const filePath = path.join(__dirname, '../../mocks/Notas2');
       const notas = await lerNotasDiretorio(filePath);
 
+      const isExist = fs.existsSync(filePath);
+
+      expect(isExist).toBe(true);
       expect(notas).toStrictEqual(outNotas);
     });
 
