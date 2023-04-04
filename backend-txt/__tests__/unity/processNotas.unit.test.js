@@ -48,6 +48,17 @@ describe('Teste de unidade processNotas', function () {
       expect(todasNotas).toEqual(outAgruparTodasNotas);
     });
 
+    it(
+      'função agruparTodasNotas retorna null nas linhas vazias',
+      async function () {
+        const filePath = path.join(__dirname, '../../mocks/Notas1/1.txt');
+        const conteudo = fs.readFileSync(filePath, 'utf8');
+        await agruparTodasNotas(conteudo, todasNotas, 2);
+
+        expect(todasNotas).toEqual([]);
+      },
+    );
+
     it('função lerNotasDiretorio deve retornar todas as notas', async function () {
       const filePath = path.join(__dirname, '../../mocks/Notas2');
       const notas = await lerNotasDiretorio(filePath);
