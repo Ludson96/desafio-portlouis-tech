@@ -1,8 +1,13 @@
 {
   "root": true,
-  "extends": ["trybe-backend"],
+  "extends": [
+    "trybe-backend"
+  ],
   "rules": {
     "import/extensions": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "max-lines": "off",
+    "max-lines-per-function": "off",
+    "sonarjs/cognitive-complexity": "off"
   }
 }

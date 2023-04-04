@@ -1,31 +1,20 @@
 import fs from 'fs';
 import path from 'path';
-// import { fail } from 'jest';
 import lerNotasDiretorio from '../../src/processNotas.js';
+import { allNotas } from '../../mocks/processNotas.mock.js';
 
-describe('Testando processNotas', function () {
-  describe('Casos de sucesso', function () {
-    it('se a função é executada com sucesso', async function () {
-      const notasPath = path.join(process.cwd(), 'src', 'data', 'Notas');
-      await lerNotasDiretorio(notasPath);
+describe('Teste de integração processNotas', function () {
+  it('se a função lerNotasDiretorio é executada com sucesso', async function () {
+    const notasPath = path.join(__dirname, '../../src/data/Notas');
+    const result = await lerNotasDiretorio(notasPath);
 
-      const filePath = path.join(process.cwd(), 'src', 'data', 'allNotas.txt');
-      const fileExists = fs.existsSync(filePath);
+    const filePath = path.join(__dirname, '../../src/data/allNotas.txt');
+    const isExist = fs.existsSync(filePath);
 
-      expect(fileExists).toBe(true);
-    });
-  });
+    const readAllNotas = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-  describe('Casos de erro', function () {
-
-    // it('deve lançar uma exceção', async function () {
-    //   try {
-    //     // const notasPath = path.join(process.cwd(), '__tests__', 'integration', 'mocks', 'Notas2');
-    //     // await lerNotasDiretorio(notasPath);
-    //     fail('A função deveria lançar uma exceção');
-    //   } catch (e) {
-    //     expect(e).toBeInstanceOf(Error);
-    //   }
-    // });
+    expect(isExist).toBe(true);
+    expect(readAllNotas).toStrictEqual(allNotas);
+    expect(result).toStrictEqual(allNotas);
   });
 });

@@ -194,3 +194,42 @@ export const outProcessaItensPendentes = [
     totalQuantidade: 9,
   },
 ];
+
+export const allPedidosPendentes = [
+  {
+    itensFaltantes: 4,
+    id_pedido: '3',
+    número_item: 2,
+    totalQuantidade: 11,
+  },
+  {
+    itensFaltantes: 5,
+    id_pedido: '3',
+    número_item: 3,
+    totalQuantidade: 105,
+  },
+  {
+    itensFaltantes: 27,
+    id_pedido: '3',
+    número_item: 1,
+    totalQuantidade: 12,
+  },
+  {
+    itensFaltantes: 9,
+    id_pedido: '5',
+    número_item: 4,
+    totalQuantidade: 12,
+  },
+  {
+    itensFaltantes: 3,
+    id_pedido: '5',
+    número_item: 1,
+    totalQuantidade: 63,
+  },
+  {
+    itensFaltantes: 1,
+    id_pedido: '5',
+    número_item: 6,
+    totalQuantidade: 9,
+  },
+];

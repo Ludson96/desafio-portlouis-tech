@@ -57,6 +57,7 @@ export default async function createFinalRelationship() {
   const allPedidosPendentes = await getAllPedidosPendentes(allPedidos, itemsPendentes);
   const pendentesFiltered = filterPedidos(allPedidosPendentes);
   savePedidos(pendentesFiltered);
+  return pendentesFiltered;
 }
 
 createFinalRelationship();
