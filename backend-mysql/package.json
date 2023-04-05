@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "desafio-portlouis.tech",
   "version": "1.0.0",
   "description": "Repositorio do desafio tecnico realizado para a empresa PortLuis.Tech",

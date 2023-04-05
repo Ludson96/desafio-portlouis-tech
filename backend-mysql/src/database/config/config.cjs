@@ -14,7 +14,7 @@ const options = {
   host: process.env.HOSTNAME || process.env.MYSQL_HOST || 'localhost',
   port: process.env.MYSQL_PORT || '3306',
   database: 
-    `${process.env.MYSQL_DB_NAME || 'delivery-app'}${suffix[environment] || suffix.test}`,
+    `${process.env.MYSQL_DB_NAME || 'portlouis-tech-dev'}${suffix[environment] || suffix.test}`,
   username: process.env.MYSQL_USER || 'root',
   password: process.env.MYSQL_PASSWORD || 'password',
   dialect: 'mysql',
@@ -25,13 +25,7 @@ const options = {
 };
 
 module.exports = {
-  development: {
-    ...options,
-  },
-  test: {
-    ...options,
-  },
-  production: {
-    ...options,
-  },
+  development: options,
+  test: options,
+  production: options,
 };

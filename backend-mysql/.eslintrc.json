@@ -1,4 +1,16 @@
 {
   "root": true,
-  "extends": ["trybe-backend"]
+  "extends": [
+    "trybe-backend"
+  ],
+  "ignorePatterns": [
+    "/src/database/",
+    "seeders",
+    "/src/tests/",
+    "jest.config.js",
+    "/src/coverage"
+  ],
+  "rules": {
+    "max-lines-per-function": ["error", {"max": 30}]
+  }
 }

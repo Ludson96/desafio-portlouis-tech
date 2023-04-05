@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('sales', {
@@ -6,7 +5,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -15,9 +14,9 @@ module.exports = {
         onDelete: 'CASCADE',
         field: 'user_id',
         references: {
-          model: 'users' ,
+          model: 'users',
           key: 'id',
-        }
+        },
       },
       sellerId: {
         type: Sequelize.INTEGER,
@@ -26,19 +25,19 @@ module.exports = {
         onDelete: 'CASCADE',
         field: 'seller_id',
         references: {
-          model: 'users' ,
+          model: 'users',
           key: 'id',
-        }
+        },
       },
       totalPrice: {
-        type: Sequelize.DECIMAL(4,2),
+        type: Sequelize.DECIMAL(4, 2),
         allowNull: false,
-        field: 'total_price'
+        field: 'total_price',
       },
       deliveryAddress: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: 'delivery_address'
+        field: 'delivery_address',
       },
       deliveryNumber: {
         type: Sequelize.STRING,
@@ -53,10 +52,10 @@ module.exports = {
       status: {
         type: Sequelize.STRING,
         allowNull: false,
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('sales');
-  }
+  },
 };

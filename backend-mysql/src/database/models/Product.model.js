@@ -1,18 +1,33 @@
-'use strict';
+export default PedidosModel = (sequelize, DataTypes) => {
+  const Pedidos = sequelize.define('Pedidos', {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    numeroItem: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: 'número_item',
+    },
+    codigoProduto: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      field: 'código_produto',
+    },
+    quantidadeProduto: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: 'quantidade_produto',
+    },
+    valorUnitarioProduto: {
+      type: DataTypes.FLOAT(5, 2),
+      allowNull: false,
+      field: 'valor_unitário_produto',
+    },
+  }, { timestamps: false, tableName: 'pedidos', underscored: true });
 
-const ProductModel = (sequelize, DataTypes) => {
-  const Product = sequelize.define('Product', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    name: DataTypes.STRING,
-    price: DataTypes.FLOAT(4,2),
-    urlImage: DataTypes.STRING,
-  },{ timestamps: false, tableName: 'products', underscored: true});
-
-  Product.associate = (models) => {
-    Product.hasMany(models.SalesProduct, { foreignKey: 'productId' });
-  };
-
-  return Product;
+  return Pedidos;
 };
-
-module.exports = ProductModel;
