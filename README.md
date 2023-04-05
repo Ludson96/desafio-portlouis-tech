@@ -1,6 +1,6 @@
 # Repositório do desafio técnico PortLuis.Tech
 
-Repositório possui dois projetos para o desafio técnico o backend-txt foi o que me desafiaram fazer seguindo as orientações propostas, e o backend-mysql é como eu faria no dia a dia utilizando o banco de dados MySQL e o ORM Sequelize. Reforço que normalmente não crio repositórios com dois projetos, como podem olhar no meu [Git Hub][Git Hub-url], mas criei dessa forma para não correr o risco de não ver o com o MySQL. Abaixo segue o README referente a cada projeto.
+Repositório possui dois projetos para o desafio técnico o **backend-txt** foi o que me desafiaram fazer seguindo as orientações propostas, e o **backend-mysql** é como eu faria no dia a dia utilizando o banco de dados MySQL e o ORM Sequelize. Reforço que normalmente não crio repositórios com dois projetos, como podem olhar no meu [Git Hub][Git Hub-url], mas criei dessa forma para não correr o risco de não ver o com o MySQL. Abaixo segue o README referente a cada projeto.
 
 <details>
   <summary>README do backend-txt</summary>
@@ -82,7 +82,7 @@ Neste projeto, implementei um programa cuja execução cruza pedidos e notas ger
 </details>
 
 <details>
-  <summary>README do backend-txt</summary>
+  <summary>README do backend-mysql</summary>
 
   </details>
 
