@@ -2,7 +2,7 @@
 
 Repositório possui dois projetos para o desafio técnico o backend-txt foi o que me desafiaram fazer seguindo as orientações propostas, e o backend-mysql é como eu faria no dia a dia utilizando o banco de dados MySQL e o ORM Sequelize. Reforço que normalmente não crio repositórios com dois projetos, como podem olhar no meu [Git Hub][Git Hub-url], mas criei dessa forma para não correr o risco de não ver o com o MySQL. Abaixo segue o README referente a cada projeto.
 
-<!-- <details> -->
+<details>
   <summary>README do backend-txt</summary>
 
 ## backend-txt
@@ -13,7 +13,6 @@ Repositório possui dois projetos para o desafio técnico o backend-txt foi o qu
 
 - Projeto realizado em `JavaScript(es6)`;
 - Para testes foram utilizados o `Jest`;
-- Utilizei o `Pytest` para fazer meus testes;
 - Para organização e padronização foi utilizado o `ESLint`;
 - Para validação foi utilizado o módulo Node.js [`Joi`](https://joi.dev/api/?v=17.9.1);
 - Utilizei o modulo `fs` em sua versão síncrona. No entanto, a versão síncrona do fs é mais simples de usar em casos em que não é necessário lidar com um grande volume de operações de leitura/escrita de arquivos, visando um melhor entendimento do código. E por isso ela foi escolhida.
@@ -28,47 +27,46 @@ Repositório possui dois projetos para o desafio técnico o backend-txt foi o qu
 
 ## O que foi desenvolvido
 
-Neste projeto, implementei um programa cuja execução cruza pedidos e notas gerando uma listagem de pedidos pendentes. Ele possui validações nos tipos de entrada de cada campo de cada linha dos arquivos.
+Neste projeto, implementei um programa cuja execução cruza pedidos e notas gerando uma listagem de pedidos pendentes.
 
 ## Instruções para instalar e rodar
 
 1. Clone o repo:
 
     ```bash
-    git clone git@github.com:Ludson96/project-job-insights.git
+    git clone git@github.com:Ludson96/desafio-portlouis-tech.git
     ```
 
 1. Entre na pasta do repositório que você acabou de clonar:
 
     ```bash
-    cd project-job-insights
+    cd desafio-portlouis-tech/backend-txt/
     ```
 
-1. Caso não tenha instalado o python, pode usar o docker para utilizar:
+1. Instale as dependências:
 
     ```bash
-    docker-compose up
+    npm install
     ```
 
-1. Crie e ative o ambiente virtual:
+1. Caso queira rodar os testes utilize o comando:
 
     ```bash
-    python3 -m venv .venv && source .venv/bin/activate
+    npm test ou npm test <nome do arquivo de teste>
     ```
 
-1. Instale as dependências no ambiente virtual:
+1. Inicie a aplicação com o comando:
 
     ```bash
-    python3 -m pip install -r dev-requirements.txt
+    npm start
     ```
 
-1. Após o passo acima inicie a aplicação flask:
+1. Será criado 4 arquivos de texto, sendo eles:
 
-    ```bash
-    run flask
-    ```
-
-> `docker-compose.yml` e `html` fornecido pela trybe
+- `allNotas.txt` - arquivo com todas as notas;
+- `allPedidos.txt` - arquivo com todos os pedidos;
+- `itensPendentes.txt` - arquivo com itensPendentes;
+- `pedidosPendentes.txt` - arquivo final com pedidos pendentes, esse é o arquivo final e o **objetivo da aplicação**.
 
 [Git-logo]: https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white
 [Git-url]: https://git-scm.com
