@@ -1,4 +1,4 @@
-class SuperService {
+module.exports = class SuperService {
   constructor(model) {
     this.model = model;
   }
@@ -29,8 +29,4 @@ class SuperService {
     const result = await this.model.delete({ where: { id } });
     return result;
   }
-}
-
-module.exports = {
-  SuperService,
 };

@@ -1,4 +1,4 @@
-export default ItensPedidoModel = (sequelize, DataTypes) => {
+module.exports = ItensPedidoModel = (sequelize, DataTypes) => {
   const ItensPedido = sequelize.define('ItensPedido', {
     id: {
       type: DataTypes.INTEGER,
@@ -9,7 +9,6 @@ export default ItensPedidoModel = (sequelize, DataTypes) => {
     numeroItem: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       field: 'número_item',
     },
     codigoProduto: {
@@ -24,7 +23,7 @@ export default ItensPedidoModel = (sequelize, DataTypes) => {
       field: 'quantidade_produto',
     },
     valorUnitarioProduto: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10,2),
       allowNull: false,
       field: 'valor_unitário_produto',
     },
@@ -40,7 +39,7 @@ export default ItensPedidoModel = (sequelize, DataTypes) => {
     });
 
     ItensPedido.associate = (models) => {
-      ItensPedido.belongsTo(models.User, 
+      ItensPedido.belongsTo(models.Pedidos, 
         { foreignKey: 'idPedido', as: 'NaTabelaItens' });
      };
 

@@ -3,6 +3,4 @@ const HTML_CODES = {
   CONFLICT: 409,
 };
 
-export default function getStatusCode(param) {
-  return HTML_CODES[param];
-}
+module.exports = (param) => HTML_CODES[param];

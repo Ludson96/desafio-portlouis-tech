@@ -4,13 +4,13 @@
     "trybe-backend"
   ],
   "ignorePatterns": [
-    "/src/database/",
-    "seeders",
-    "/src/tests/",
-    "jest.config.js",
-    "/src/coverage"
+    "/src/database/"
+    // "/src/tests/",
+    // "jest.config.js",
+    // "/src/coverage"
   ],
   "rules": {
     "max-lines-per-function": ["error", {"max": 30}]
+    // "import/extensions": "off"
   }
 }

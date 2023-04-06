@@ -16,7 +16,7 @@ module.exports = {
       allowNull: false,
     },
     valorTotal: {
-      type: Sequelize.FLOAT(8, 2),
+      type: Sequelize.DECIMAL(10, 2),
       allowNull: false,
       field: 'valor_total',
     }

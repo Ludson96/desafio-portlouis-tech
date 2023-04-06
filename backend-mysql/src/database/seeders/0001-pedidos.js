@@ -1,4 +1,4 @@
-const { pedidos } = require('../data/allPedidos.cjs');
+const { pedidos } = require('../data/allPedidos');
 
 module.exports = {
   up: async (queryInterface, _Sequelize) => {
@@ -7,5 +7,5 @@ module.exports = {
 
   down: async (queryInterface, _Sequelize) => {
     await queryInterface.bulkDelete('pedidos', null, {});
-  }
+  },
 };

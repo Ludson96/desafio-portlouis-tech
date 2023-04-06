@@ -1,15 +1,15 @@
-import PedidosService from '../services/Pedidos.service';
-import getStatusCode from '../helpers/htmlCodes';
+const PedidosService = require('../services/Pedidos.service');
+const getStatusCode = require('../helpers/htmlCodes');
 
-export default class PedidosController {
+module.exports = class PedidosController {
   constructor() {
     this.service = new PedidosService();
-    this.getPedidos = this.getPedidos.bind(this);
+    this.getAllPedidos = this.getAllPedidos.bind(this);
   }
 
-  async getPedidos(_req, res) {
+  async getAllPedidos(_req, res) {
     try {
-      const { type, payload } = await this.service.getPedidos();
+      const { type, payload } = await this.service.getAllPedidos();
       if (type) return res.status(getStatusCode(type)).json({ message: 'Pedido not found' });
       return res.status(200).json(payload);
     } catch (erro) {
@@ -19,4 +19,4 @@ export default class PedidosController {
       });
     }
   }
-}
+};

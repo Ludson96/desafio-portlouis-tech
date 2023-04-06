@@ -1,5 +1,5 @@
-import PedidosController from './Pedidos.controller';
+const PedidosController = require('./Pedidos.controller');
 
-export {
+module.exports = {
   PedidosController,
 };

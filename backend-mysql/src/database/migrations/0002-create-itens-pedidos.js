@@ -1,12 +1,12 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => queryInterface.createTable('itens_pedido', {
-      id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-      },
-      numeroItem: {
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    numeroItem: {
       type: Sequelize.INTEGER,
       allowNull: false,
       field: 'número_item',
@@ -22,7 +22,7 @@ module.exports = {
       field: 'quantidade_produto',
     },
     valorUnitarioProduto: {
-      type: Sequelize.FLOAT(8, 2),
+      type: Sequelize.DECIMAL(10, 2),
       allowNull: false,
       field: 'valor_unitário_produto',
     },

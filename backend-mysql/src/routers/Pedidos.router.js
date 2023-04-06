@@ -1,10 +1,10 @@
-import { Router } from 'express';
-import { PedidosController } from '../controllers';
+const { Router } = require('express');
+const { PedidosController } = require('../controllers');
 
 const router = Router();
 
 const pedidosController = new PedidosController();
 
-router.get('/', pedidosController.getPedidos);
+router.get('/', pedidosController.getAllPedidos);
 
-export default router;
+module.exports = router;
