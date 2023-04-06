@@ -1,4 +1,4 @@
-const PedidosService = require('../services/Pedidos.service');
+const { PedidosService } = require('../services');
 const getStatusCode = require('../helpers/htmlCodes');
 
 module.exports = class PedidosController {

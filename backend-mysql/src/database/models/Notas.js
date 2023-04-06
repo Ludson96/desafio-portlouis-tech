@@ -21,11 +21,11 @@ module.exports = NotasModel = (sequelize, DataTypes) => {
       underscored: true,
     });
 
-
+    
   Notas.associate = (models) => {
     Notas.hasMany(
       models.ItensNota,
-      { foreignKey: 'idPedido', as: 'ItensPedido' },
+      { foreignKey: 'idNota', as: 'ItensNota' },
     );
   };
 
