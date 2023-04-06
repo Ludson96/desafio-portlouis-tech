@@ -1,37 +1,25 @@
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('pedidos', {
-      id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-      },
-      numeroItem: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        field: 'número_item',
-      },
-      codigoProduto: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-        field: 'código_produto',
-      },
-      quantidadeProduto: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        field: 'quantidade_produto',
-      },
-      valorUnitarioProduto: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        field: 'valor_unitário_produto',
-      },
-    });
-  },
+  up: async (queryInterface, Sequelize) => queryInterface.createTable('pedidos', {
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    data: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.NOW
+    },
+    cliente: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    valorTotal: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      field: 'valor_total',
+    }
+  }),
 
-  down: async (queryInterface, _Sequelize) => {
-    return queryInterface.dropTable('pedidos');
-  }
-}
+  down: async (queryInterface, _Sequelize) => queryInterface.dropTable('pedidos'),
+};

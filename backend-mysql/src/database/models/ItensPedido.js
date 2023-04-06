@@ -1,5 +1,5 @@
-export default PedidosModel = (sequelize, DataTypes) => {
-  const Pedidos = sequelize.define('Pedidos', {
+export default ItensPedidoModel = (sequelize, DataTypes) => {
+  const ItensPedido = sequelize.define('ItensPedido', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -9,6 +9,7 @@ export default PedidosModel = (sequelize, DataTypes) => {
     numeroItem: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      autoIncrement: true,
       field: 'número_item',
     },
     codigoProduto: {
@@ -23,11 +24,25 @@ export default PedidosModel = (sequelize, DataTypes) => {
       field: 'quantidade_produto',
     },
     valorUnitarioProduto: {
-      type: DataTypes.FLOAT(5, 2),
+      type: DataTypes.INTEGER,
       allowNull: false,
       field: 'valor_unitário_produto',
     },
-  }, { timestamps: false, tableName: 'pedidos', underscored: true });
+    idPedido: {
+      type: DataTypes.INTEGER,
+      foreignKey: true,
+    },
+  },
+    {
+      timestamps: false,
+      tableName: 'itens_pedido',
+      underscored: true
+    });
 
-  return Pedidos;
+    ItensPedido.associate = (models) => {
+      ItensPedido.belongsTo(models.User, 
+        { foreignKey: 'idPedido', as: 'NaTabelaItens' });
+     };
+
+  return ItensPedido;
 };
