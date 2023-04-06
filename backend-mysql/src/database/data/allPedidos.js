@@ -170,12 +170,237 @@ const pedidos = [
   },
   {
     cliente: 'Fulano4',
-    valor_total: 6066.00
+    valor_total: 6066.00,
   },
   {
     cliente: 'Fulano5',
     valor_total: 2400.00,
   },
-]
+];
 
-module.exports = { itensPedido, pedidos };
+const notas = [
+  {
+    Vendedor: 'Fulano1',
+  },
+  {
+    Vendedor: 'Fulano2',
+  },
+  {
+    Vendedor: 'Fulano3',
+  },
+  {
+    Vendedor: 'Fulano4',
+  },
+  {
+    Vendedor: 'Fulano5',
+  },
+  {
+    Vendedor: 'Fulano6',
+  },
+  {
+    Vendedor: 'Fulano7',
+  },
+  {
+    Vendedor: 'Fulano8',
+  },
+  {
+    Vendedor: 'Fulano9',
+  },
+];
+
+const itensNota = [
+  {
+    id_nota: 1,
+    id_pedido: 1,
+    número_item: 4,
+    quantidade_produto: 4,
+  },
+  {
+    id_nota: 1,
+    id_pedido: 1,
+    número_item: 2,
+    quantidade_produto: 5,
+  },
+  {
+    id_nota: 2,
+    id_pedido: 2,
+    número_item: 1,
+    quantidade_produto: 5,
+  },
+  {
+    id_nota: 2,
+    id_pedido: 2,
+    número_item: 3,
+    quantidade_produto: 90,
+  },
+  {
+    id_nota: 3,
+    id_pedido: 5,
+    número_item: 3,
+    quantidade_produto: 7,
+  },
+  {
+    id_nota: 3,
+    id_pedido: 5,
+    número_item: 4,
+    quantidade_produto: 1,
+  },
+  {
+    id_nota: 3,
+    id_pedido: 5,
+    número_item: 1,
+    quantidade_produto: 21,
+  },
+  {
+    id_nota: 3,
+    id_pedido: 5,
+    número_item: 6,
+    quantidade_produto: 4,
+  },
+  {
+    id_nota: 4,
+    id_pedido: 5,
+    número_item: 3,
+    quantidade_produto: 11,
+  },
+  {
+    id_nota: 4,
+    id_pedido: 5,
+    número_item: 4,
+    quantidade_produto: 9,
+  },
+  {
+    id_nota: 4,
+    id_pedido: 5,
+    número_item: 1,
+    quantidade_produto: 20,
+  },
+  {
+    id_nota: 4,
+    id_pedido: 5,
+    número_item: 6,
+    quantidade_produto: 5,
+  },
+  {
+    id_nota: 5,
+    id_pedido: 3,
+    número_item: 2,
+    quantidade_produto: 5,
+  },
+  {
+    id_nota: 5,
+    id_pedido: 3,
+    número_item: 3,
+    quantidade_produto: 50,
+  },
+  {
+    id_nota: 5,
+    id_pedido: 3,
+    número_item: 4,
+    quantidade_produto: 15,
+  },
+  {
+    id_nota: 5,
+    id_pedido: 3,
+    número_item: 1,
+    quantidade_produto: 9,
+  },
+  {
+    id_nota: 6,
+    id_pedido: 1,
+    número_item: 3,
+    quantidade_produto: 3,
+  },
+  {
+    id_nota: 6,
+    id_pedido: 1,
+    número_item: 4,
+    quantidade_produto: 8,
+  },
+  {
+    id_nota: 6,
+    id_pedido: 1,
+    número_item: 1,
+    quantidade_produto: 9,
+  },
+  {
+    id_nota: 7,
+    id_pedido: 4,
+    número_item: 3,
+    quantidade_produto: 25,
+  },
+  {
+    id_nota: 7,
+    id_pedido: 1,
+    número_item: 3,
+    quantidade_produto: 7,
+  },
+  {
+    id_nota: 7,
+    id_pedido: 4,
+    número_item: 2,
+    quantidade_produto: 51,
+  },
+  {
+    id_nota: 7,
+    id_pedido: 4,
+    número_item: 1,
+    quantidade_produto: 170,
+  },
+  {
+    id_nota: 8,
+    id_pedido: 5,
+    número_item: 7,
+    quantidade_produto: 7,
+  },
+  {
+    id_nota: 8,
+    id_pedido: 5,
+    número_item: 4,
+    quantidade_produto: 2,
+  },
+  {
+    id_nota: 8,
+    id_pedido: 5,
+    número_item: 1,
+    quantidade_produto: 22,
+  },
+  {
+    id_nota: 8,
+    id_pedido: 5,
+    número_item: 5,
+    quantidade_produto: 6,
+  },
+  {
+    id_nota: 9,
+    id_pedido: 3,
+    número_item: 4,
+    quantidade_produto: 5,
+  },
+  {
+    id_nota: 9,
+    id_pedido: 3,
+    número_item: 5,
+    quantidade_produto: 6,
+  },
+  {
+    id_nota: 9,
+    id_pedido: 3,
+    número_item: 2,
+    quantidade_produto: 6,
+  },
+  {
+    id_nota: 9,
+    id_pedido: 3,
+    número_item: 3,
+    quantidade_produto: 55,
+  },
+  {
+    id_nota: 9,
+    id_pedido: 3,
+    número_item: 1,
+    quantidade_produto: 3,
+  },
+];
+
+module.exports = { itensPedido, pedidos, notas, itensNota };

@@ -1,5 +1,5 @@
-module.exports = PedidosModel = (sequelize, DataTypes) => {
-  const Pedidos = sequelize.define('Pedidos', {
+module.exports = NotasModel = (sequelize, DataTypes) => {
+  const Notas = sequelize.define('Notas', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -10,29 +10,24 @@ module.exports = PedidosModel = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
     },
-    cliente: {
+    vendedor: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    valorTotal: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
-      field: 'valor_total',
     },
   },
     {
       timestamps: false,
-      tableName: 'pedidos',
+      tableName: 'notas',
       underscored: true,
-    },
-  );
+    });
 
-  Pedidos.associate = (models) => {
-    Pedidos.hasMany(
-      models.ItensPedido,
+
+  Notas.associate = (models) => {
+    Notas.hasMany(
+      models.ItensNota,
       { foreignKey: 'idPedido', as: 'ItensPedido' },
     );
   };
 
-  return Pedidos;
+  return Notas;
 };
