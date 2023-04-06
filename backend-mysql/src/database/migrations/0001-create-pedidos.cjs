@@ -8,14 +8,15 @@ module.exports = {
     },
     data: {
       type: Sequelize.DATE,
-      defaultValue: Sequelize.NOW
+      allowNull: false,
+      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
     },
     cliente: {
       type: Sequelize.STRING,
       allowNull: false,
     },
     valorTotal: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT(8, 2),
       allowNull: false,
       field: 'valor_total',
     }

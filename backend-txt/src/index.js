@@ -16,7 +16,8 @@ export async function getAllPedidosPendentes(allPedidos, itemsPendentes) {
         for (let j = 0; j < itemsPendentes.length; j += 1) {
           const pendente = itemsPendentes[j];
           if (pendente.id_pedido === id && pendente.número_item === pedido.número_item) {
-            const valorTotalPendenteUnitario = pendente.itensFaltantes * pedido.valor_unitário_produto;
+            const valorTotalPendenteUnitario = pendente.itensFaltantes
+              * pedido.valor_unitário_produto;
             valorTotalPendente += valorTotalPendenteUnitario;
             pendentes.push({
               número_item: pedido.número_item,
@@ -54,7 +55,6 @@ export default async function createFinalRelationship() {
   const allPedidosPendentes = await getAllPedidosPendentes(allPedidos, itemsPendentes);
   const pendentesFiltered = filterPedidos(allPedidosPendentes);
   savePedidos(pendentesFiltered);
-  console.log('🚀 ~ file: index.js:62 ~ createFinalRelationship ~ pendentesFiltered:', pendentesFiltered);
   return pendentesFiltered;
 }
 

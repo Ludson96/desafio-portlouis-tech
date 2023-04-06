@@ -9,13 +9,11 @@ module.exports = {
       numeroItem: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       field: 'número_item',
     },
     codigoProduto: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true,
       field: 'código_produto',
     },
     quantidadeProduto: {
@@ -24,7 +22,7 @@ module.exports = {
       field: 'quantidade_produto',
     },
     valorUnitarioProduto: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.FLOAT(8, 2),
       allowNull: false,
       field: 'valor_unitário_produto',
     },
