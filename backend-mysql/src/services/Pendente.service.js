@@ -1,40 +1,41 @@
-// const result = await Pedido.findAll({
-//   where: { id: 1 },
+const SuperService = require('./SuperService');
+const { ItensPedido } = require('../database/models');
+const NotasService = require('./Notas.service');
+
+module.exports = class PendenteService extends SuperService {
+  constructor() {
+    super(ItensPedido);
+    this.notas = new NotasService();
+  }
+
+  async getPendentes() {
+    const { payload } = await this.notas.getAllNotas();
+    payload.forEach(({ ItensNota }) => {
+      ItensNota.forEach(async (nota) => {
+        const item = await super.findOne(
+          {
+            idPedido: nota.idPedido,
+            numeroItem: nota.numeroItem,
+          },
+        );
+        item.quantidadeProduto -= nota.quantidadeProduto;
+        await item.save();
+      });
+    });
+  }
+};
+
+// const result = await super.findAll({
 //   include: [
 //     {
 //       model: ItensPedido,
 //       as: 'ItensPedido',
-//       attributes: ['numeroItem', 'codigoProduto', 'quantidadeProduto', 'valorUnitarioProduto'],
+//       attributes: { exclude: ['id'] },
 //     },
 //     {
-//       model: Nota,
-//       as: 'Notas',
-//       attributes: ['id', 'idPedido'],
-//       include: [
-//         {
-//           model: NotasItens,
-//           as: 'notasItens',
-//           attributes: ['numeroItem', 'quantidadeProduto'],
-//         },
-//       ],
+//       model: ItensNota,
+//       as: 'ItensNota',
+//       attributes: { exclude: ['id', 'idNota', 'id_nota', 'id_pedido'] },
 //     },
 //   ],
 // });
-
-// const pedido = result[0].get({ plain: true });
-
-// const itensPendentes = pedido.ItensPedido.filter((itemPedido) => {
-//   const itemNota = pedido.Notas[0].notasItens.find(
-//     (item) => item.numeroItem === itemPedido.numeroItem
-//   );
-
-//   if (!itemNota) {
-//     return true;
-//   }
-
-//   const quantidadePendente = itemPedido.quantidadeProduto - itemNota.quantidadeProduto;
-
-//   return quantidadePendente > 0;
-// });
-
-// console.log(itensPendentes);

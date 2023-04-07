@@ -1,0 +1,196 @@
+[
+  {
+    "id": 1,
+    "data": "2023-04-07T12:40:28.000Z",
+    "cliente": "Fulano1",
+    "valorTotal": "398.00",
+    "ItensPedido": [
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 1,
+        "codigoProduto": "A22",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "10.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 2,
+        "codigoProduto": "K13",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "15.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 3,
+        "codigoProduto": "MR2",
+        "quantidadeProduto": 7,
+        "valorUnitarioProduto": "17.30"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 4,
+        "codigoProduto": "SD9",
+        "quantidadeProduto": 4,
+        "valorUnitarioProduto": "5.00"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "data": "2023-04-07T12:40:28.000Z",
+    "cliente": "Fulano2",
+    "valorTotal": "818.00",
+    "ItensPedido": [
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 1,
+        "codigoProduto": "HU5",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "33.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 2,
+        "codigoProduto": "XK1",
+        "quantidadeProduto": 25,
+        "valorUnitarioProduto": "20.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 3,
+        "codigoProduto": "WF99",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "1.70"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "data": "2023-04-07T12:40:28.000Z",
+    "cliente": "Fulano3",
+    "valorTotal": "2667.00",
+    "ItensPedido": [
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 1,
+        "codigoProduto": "A99",
+        "quantidadeProduto": 36,
+        "valorUnitarioProduto": "10.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 2,
+        "codigoProduto": "M2",
+        "quantidadeProduto": 9,
+        "valorUnitarioProduto": "17.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 3,
+        "codigoProduto": "K73",
+        "quantidadeProduto": 55,
+        "valorUnitarioProduto": "15.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 4,
+        "codigoProduto": "SD9",
+        "quantidadeProduto": 15,
+        "valorUnitarioProduto": "5.40"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 5,
+        "codigoProduto": "D19",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "44.00"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "data": "2023-04-07T12:40:28.000Z",
+    "cliente": "Fulano4",
+    "valorTotal": "6066.00",
+    "ItensPedido": [
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 1,
+        "codigoProduto": "SF49",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "5.30"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 2,
+        "codigoProduto": "VR5",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "90.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 3,
+        "codigoProduto": "BR1",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "23.00"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "data": "2023-04-07T12:40:28.000Z",
+    "cliente": "Fulano5",
+    "valorTotal": "2400.00",
+    "ItensPedido": [
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 1,
+        "codigoProduto": "AM9",
+        "quantidadeProduto": 44,
+        "valorUnitarioProduto": "10.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 2,
+        "codigoProduto": "MR5",
+        "quantidadeProduto": 15,
+        "valorUnitarioProduto": "7.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 3,
+        "codigoProduto": "SS3",
+        "quantidadeProduto": 7,
+        "valorUnitarioProduto": "15.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 4,
+        "codigoProduto": "RR7",
+        "quantidadeProduto": 19,
+        "valorUnitarioProduto": "45.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 5,
+        "codigoProduto": "FM8",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "19.00"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 6,
+        "codigoProduto": "YY6",
+        "quantidadeProduto": 5,
+        "valorUnitarioProduto": "15.90"
+      },
+      {
+        "valorTotalUnitario": null,
+        "numeroItem": 7,
+        "codigoProduto": "T19",
+        "quantidadeProduto": 0,
+        "valorUnitarioProduto": "21.00"
+      }
+    ]
+  }
+]

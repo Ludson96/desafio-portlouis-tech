@@ -28,10 +28,8 @@ module.exports = PedidosModel = (sequelize, DataTypes) => {
   );
 
   Pedidos.associate = (models) => {
-    Pedidos.hasMany(
-      models.ItensPedido,
-      { foreignKey: 'idPedido', as: 'ItensPedido' },
-    );
+    Pedidos.hasMany(models.ItensPedido, { foreignKey: 'idPedido', as: 'ItensPedido' });
+    Pedidos.hasMany(models.ItensNota, { foreignKey: 'idPedido', as: 'ItensNota' });
   };
 
   return Pedidos;

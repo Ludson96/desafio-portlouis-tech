@@ -27,6 +27,13 @@ module.exports = ItensPedidoModel = (sequelize, DataTypes) => {
       allowNull: false,
       field: 'valor_unitário_produto',
     },
+    valorTotalUnitario: {
+      type: DataTypes.VIRTUAL,
+      field: 'valor_total_unitário',
+      get() {
+        return this.getDataValue('quantidade_produto') * this.getDataValue('valor_unitário_produto');
+      },
+    },
     idPedido: {
       type: DataTypes.INTEGER,
       foreignKey: true,

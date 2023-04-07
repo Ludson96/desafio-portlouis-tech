@@ -11,8 +11,8 @@ module.exports = class NotasService extends SuperService {
       include: [{
         model: ItensNota,
         as: 'ItensNota',
+        attributes: { exclude: ['id', 'idNota', 'id_nota', 'id_pedido'] },
       }],
-      subQuery: false,
     });
 
     if (result.length === 0) return { type: 'NOT_FOUND', payload: result };

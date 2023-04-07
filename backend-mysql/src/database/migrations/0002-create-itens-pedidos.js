@@ -1,42 +1,54 @@
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.createTable('itens_pedido', {
-    id: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    numeroItem: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      field: 'número_item',
-    },
-    codigoProduto: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      field: 'código_produto',
-    },
-    quantidadeProduto: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      field: 'quantidade_produto',
-    },
-    valorUnitarioProduto: {
-      type: Sequelize.DECIMAL(10, 2),
-      allowNull: false,
-      field: 'valor_unitário_produto',
-    },
-    idPedido: {
-      type: Sequelize.INTEGER,
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
-      field: 'id_pedido',
-      references: {
-        model: 'pedidos',
-        key: 'id',
-      }
-    },
-  }),
+  up: async (queryInterface, Sequelize) =>
+    queryInterface.createTable('itens_pedido', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      numeroItem: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: 'número_item',
+      },
+      codigoProduto: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: 'código_produto',
+      },
+      quantidadeProduto: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: 'quantidade_produto',
+      },
+      valorUnitarioProduto: {
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false,
+        field: 'valor_unitário_produto',
+      },
+      valorTotalUnitario: {
+        type: Sequelize.FLOAT,
+        field: 'valor_total_unitário',
+        get() {
+          return Sequelize.literal(
+            `quantidade_produto * valor_unitário_produto`
+          );
+        },
+      },
+      idPedido: {
+        type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        field: 'id_pedido',
+        references: {
+          model: 'pedidos',
+          key: 'id',
+        },
+      },
+    }),
 
-  down: async (queryInterface, _Sequelize) => queryInterface.dropTable('itens_pedido'),
+  down: async (queryInterface, _Sequelize) => {
+    await queryInterface.dropTable('itens_pedido');
+  },
 };

@@ -9,20 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     idNota: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      field: 'id_nota',
-      references: {
-        model: 'notas',
-        key: 'id'
-      }
+      foreignKey: true,
     },
     idPedido: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      field: 'id_pedido',
-      references: {
-        model: 'pedidos',
-        key: 'id'
-      }
+      foreignKey: true,
     },
     numeroItem: {
       type: DataTypes.INTEGER,

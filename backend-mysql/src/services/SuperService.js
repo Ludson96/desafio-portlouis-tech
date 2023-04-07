@@ -9,15 +9,15 @@ module.exports = class SuperService {
   }
 
   async findAll(obj) {
-    const result = await this.model.findAll(obj);
+    const result = await this.model.findAll({ ...obj, raw: false });
     if (!result) return null;
-    return result.map((item) => item.dataValues);
+    return result.map((item) => item.toJSON());
   }
 
   async findOne(objToSearch) {
     const result = await this.model.findOne({ where: objToSearch });
     if (!result) return null;
-    return result.dataValues;
+    return result;
   }
 
   async update(objContent, objWhere) {

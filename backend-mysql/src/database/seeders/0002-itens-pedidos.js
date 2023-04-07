@@ -1,4 +1,4 @@
-const { itensPedido } = require('../data/allPedidos');
+const { itensPedido } = require('../data/seeds');
 
 module.exports = {
   up: async (queryInterface, _Sequelize) => {
