@@ -80,6 +80,14 @@ export const outGetAllPedidosPendentes = [
     id: '3',
     pendentes: [
       {
+        código_produto: 'A99',
+        número_item: 1,
+        quantidade_faltante: 27,
+        valor_total_pendente: '270.00',
+        valor_total_unitário: '390.00',
+        valor_unitário_produto: '10.00',
+      },
+      {
         código_produto: 'M2',
         número_item: 2,
         quantidade_faltante: 4,
@@ -95,23 +103,25 @@ export const outGetAllPedidosPendentes = [
         valor_total_unitário: '1650.00',
         valor_unitário_produto: '15.00',
       },
-      {
-        código_produto: 'A99',
-        número_item: 1,
-        quantidade_faltante: 27,
-        valor_total_pendente: '270.00',
-        valor_total_unitário: '390.00',
-        valor_unitário_produto: '10.00',
-      }],
-    saldo_valor: '1847.00',
-    valor_total_pedido: '8001.00',
-  }];
+    ],
+    saldo_valor: '413.00',
+    valor_total_pedido: '2667.00',
+  },
+];
 
 export const pedidosPendentes = [
   {
     id: '3',
     pendentes: [
       {
+        código_produto: 'A99',
+        número_item: 1,
+        quantidade_faltante: 27,
+        valor_total_pendente: '270.00',
+        valor_total_unitário: '390.00',
+        valor_unitário_produto: '10.00',
+      },
+      {
         código_produto: 'M2',
         número_item: 2,
         quantidade_faltante: 4,
@@ -127,16 +137,9 @@ export const pedidosPendentes = [
         valor_total_unitário: '1650.00',
         valor_unitário_produto: '15.00',
       },
-      {
-        código_produto: 'A99',
-        número_item: 1,
-        quantidade_faltante: 27,
-        valor_total_pendente: '270.00',
-        valor_total_unitário: '390.00',
-        valor_unitário_produto: '10.00',
-      }],
-    saldo_valor: '1847.00',
-    valor_total_pedido: '8001.00',
+    ],
+    saldo_valor: '413.00',
+    valor_total_pedido: '2667.00',
   },
   {
     id: 0,
@@ -155,9 +158,17 @@ export const pedidosPendentes = [
 export const allPedidosPendentes = [
   {
     id: '3',
-    valor_total_pedido: '8001.00',
-    saldo_valor: '1847.00',
+    valor_total_pedido: '2667.00',
+    saldo_valor: '413.00',
     pendentes: [
+      {
+        número_item: 1,
+        código_produto: 'A99',
+        valor_unitário_produto: '10.00',
+        quantidade_faltante: 27,
+        valor_total_unitário: '390.00',
+        valor_total_pendente: '270.00',
+      },
       {
         número_item: 2,
         código_produto: 'M2',
@@ -174,29 +185,13 @@ export const allPedidosPendentes = [
         valor_total_unitário: '1650.00',
         valor_total_pendente: '75.00',
       },
-      {
-        número_item: 1,
-        código_produto: 'A99',
-        valor_unitário_produto: '10.00',
-        quantidade_faltante: 27,
-        valor_total_unitário: '390.00',
-        valor_total_pendente: '270.00',
-      },
     ],
   },
   {
     id: '5',
-    valor_total_pedido: '7200.00',
-    saldo_valor: '1861.80',
+    valor_total_pedido: '2400.00',
+    saldo_valor: '450.90',
     pendentes: [
-      {
-        número_item: 4,
-        código_produto: 'RR7',
-        valor_unitário_produto: '45.00',
-        quantidade_faltante: 9,
-        valor_total_unitário: '945.00',
-        valor_total_pendente: '405.00',
-      },
       {
         número_item: 1,
         código_produto: 'AM9',
@@ -204,6 +199,14 @@ export const allPedidosPendentes = [
         quantidade_faltante: 3,
         valor_total_unitário: '660.00',
         valor_total_pendente: '30.00',
+      },
+      {
+        número_item: 4,
+        código_produto: 'RR7',
+        valor_unitário_produto: '45.00',
+        quantidade_faltante: 9,
+        valor_total_unitário: '945.00',
+        valor_total_pendente: '405.00',
       },
       {
         número_item: 6,

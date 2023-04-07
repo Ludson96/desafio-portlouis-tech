@@ -49,7 +49,7 @@ Neste projeto, implementei um programa cuja execução cruza pedidos e notas ger
     npm install
     ```
 
-1. Caso queira rodar os testes utilize o comando:
+1. Caso queira rodar os testes utilize o comando (o console.error é para melhor visualização):
 
     ```bash
     npm test ou npm test <nome do arquivo de teste>
