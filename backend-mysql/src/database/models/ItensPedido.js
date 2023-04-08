@@ -24,7 +24,7 @@ module.exports = ItensPedidoModel = (sequelize, DataTypes) => {
     },
     quantidadeProdutoPendente: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
       field: 'quantidade_produto_pendente',
     },
     valorUnitarioProduto: {

@@ -7,6 +7,7 @@ module.exports = class PedidosController {
   constructor() {
     this.service = new PedidosService();
     this.getAllPedidos = this.getAllPedidos.bind(this);
+    this.createPedido = this.createPedido.bind(this);
   }
 
   async getAllPedidos(_req, res) {
@@ -19,6 +20,20 @@ module.exports = class PedidosController {
     } catch (erro) {
       return res.status(500).json({
         message: 'Erro sobre pedidos',
+        error: erro.message,
+      });
+    }
+  }
+
+  async createPedido(req, res) {
+    try {
+      const content = req.body;
+      const { type, payload } = await this.service.createPedido(content);
+      if (type) return res.status(getStatusCode(type)).json({ message: 'Erro ao criar pedido' });
+      return res.status(201).json(payload);
+    } catch (erro) {
+      return res.status(500).json({
+        message: 'Erro sobre criação de pedido',
         error: erro.message,
       });
     }

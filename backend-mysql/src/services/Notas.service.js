@@ -1,5 +1,6 @@
 const SuperService = require('./SuperService');
 const { Notas, ItensNota } = require('../database/models');
+const { ItensPedido } = require('../database/models/index');
 
 module.exports = class NotasService extends SuperService {
   constructor() {
@@ -22,10 +23,19 @@ module.exports = class NotasService extends SuperService {
 
   async createNota({ vendedor, itensNota }) {
     const newNota = await super.create({ vendedor });
-    const newItensNota = await itensNota.map((item) =>
-      ItensNota.create({ idNota: newNota.id, ...item }));
-
-    await Promise.all(newItensNota);
+    await itensNota.forEach(async (item) => {
+      ItensNota.create({ idNota: newNota.id, ...item });
+      const itemN = await ItensPedido.findOne({
+        where: {
+          idPedido: item.idPedido,
+          numeroItem: item.numeroItem,
+        },
+      });
+      if (itemN) {
+        itemN.quantidadeProdutoPendente -= item.quantidadeProduto;
+        await itemN.save();
+      }
+    });
 
     return { type: null, payload: newNota };
   }

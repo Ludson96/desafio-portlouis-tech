@@ -7,4 +7,6 @@ const pedidosController = new PedidosController();
 
 router.get('/', pedidosController.getAllPedidos);
 
+router.post('/', pedidosController.createPedido);
+
 module.exports = router;
