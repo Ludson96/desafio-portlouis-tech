@@ -17,6 +17,7 @@ export function addPedidos(linha, todosPedidos, id, index) {
     }
 
     todosPedidos.push({
+      id_pedido: id,
       número_item: pedido.número_item,
       código_produto: pedido.código_produto,
       quantidade_produto: pedido.quantidade_produto,

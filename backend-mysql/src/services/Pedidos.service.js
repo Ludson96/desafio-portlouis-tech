@@ -11,7 +11,9 @@ module.exports = class PedidosService extends SuperService {
       include: [{
         model: ItensPedido,
         as: 'ItensPedido',
-        attributes: { exclude: ['id', 'idPedido'] },
+        attributes: {
+          // exclude: ['id', 'idPedido', 'quantidadeProdutoPendente', 'valorTotalPendenteUnitario'],
+        },
       }],
     });
 

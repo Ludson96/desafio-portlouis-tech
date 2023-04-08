@@ -31,56 +31,64 @@ export function getTotalQuantidade(agrupadosPorPedido) {
   return totalQuantidade;
 }
 
-export function compareQuantidades(pedido, nota) {
-  const itemPedido = pedido.pedidos.find((p) => p.número_item === nota.número_item);
-  if (!itemPedido) {
-    return null;
+export function compareQuantidades(notasTotalQuantidade, pedido) {
+  const itemNota = notasTotalQuantidade.find((nota) =>
+    nota.número_item === pedido.número_item && nota.id_pedido === pedido.id_pedido);
+  if (!itemNota) {
+    return { itensFaltantes: pedido.quantidade_produto, ...pedido };
   }
 
-  const diferenca = itemPedido.quantidade_produto - nota.totalQuantidade;
+  const diferenca = pedido.quantidade_produto - itemNota.totalQuantidade;
   if (diferenca > 0) {
-    return { itensFaltantes: diferenca, ...nota };
+    return { itensFaltantes: diferenca, ...pedido };
   } if (diferenca < 0) {
     throw new Error('Nota emitida com numero de quantidade maior do que o pedido');
-  } else {
-    return null;
   }
 }
 
-export function getPendentes(allPedidos, totalQuantidade, pendentes) {
-  allPedidos.forEach((pedido) => {
-    totalQuantidade.forEach((nota) => {
-      if (pedido.id === nota.id_pedido) {
-        const diferenca = compareQuantidades(pedido, nota);
-        if (diferenca) {
-          pendentes.push(diferenca);
-        }
-      }
+export function getPendentes(pedidos, notasTotalQuantidade) {
+  const itensPendentesComNull = [];
+  pedidos.forEach((pedido) => {
+    const itemPendente = compareQuantidades(notasTotalQuantidade, pedido);
+    itensPendentesComNull.push(itemPendente);
+  });
+  const itensPendentes = itensPendentesComNull.filter(Boolean);
+  return itensPendentes;
+}
+
+export function agrupaArrayPedidos(array) {
+  const pedidos = [];
+  array.forEach((p) => {
+    p.pedidos.forEach((pedido) => {
+      pedidos.push(pedido);
     });
   });
+  return pedidos;
+}
+
+export function agrupaArrayNotas(array) {
+  const notas = [];
+  array.forEach((p) => {
+    p.notas.forEach((pedido) => {
+      notas.push(pedido);
+    });
+  });
+
+  return notas;
 }
 
 export default async function processaItensPendentes() {
   const allPedidos = await processPedidos('./src/data/Pedidos');
   const allNotas = await processNotas('./src/data/Notas');
 
-  const pedidos = [];
-  allPedidos.forEach((p) => {
-    allNotas.forEach((n) => {
-      n.notas.forEach((nota) => {
-        if (nota.id_pedido === p.id) {
-          pedidos.push(nota);
-        }
-      });
-    });
-  });
+  const notas = agrupaArrayNotas(allNotas);
 
-  const agrupadosPorPedido = agruparPorPedido(pedidos);
+  const agrupadosPorPedido = agruparPorPedido(notas);
 
-  const totalQuantidade = getTotalQuantidade(agrupadosPorPedido);
+  const notasTotalQuantidade = getTotalQuantidade(agrupadosPorPedido);
 
-  const pendentes = [];
-  getPendentes(allPedidos, totalQuantidade, pendentes);
-  fs.writeFileSync('./src/data/itensPendentes.txt', JSON.stringify(pendentes, null, 2));
-  return pendentes;
+  const pedidos = agrupaArrayPedidos(allPedidos);
+  const itensPendentes = getPendentes(pedidos, notasTotalQuantidade);
+  fs.writeFileSync('./src/data/itensPendentes.txt', JSON.stringify(itensPendentes, null, 2));
+  return itensPendentes;
 }

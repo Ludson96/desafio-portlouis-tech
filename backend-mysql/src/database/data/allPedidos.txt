@@ -1,195 +1,283 @@
 [
   {
     "id": 1,
-    "data": "2023-04-07T12:40:28.000Z",
+    "data": "2023-04-08T00:05:23.000Z",
     "cliente": "Fulano1",
     "valorTotal": "398.00",
     "ItensPedido": [
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 90,
+        "valorTotalPendenteUnitario": 0,
+        "id": 1,
         "numeroItem": 1,
         "codigoProduto": "A22",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "10.00"
+        "quantidadeProduto": 9,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "10.00",
+        "idPedido": 1
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 75,
+        "valorTotalPendenteUnitario": 0,
+        "id": 2,
         "numeroItem": 2,
         "codigoProduto": "K13",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "15.00"
+        "quantidadeProduto": 5,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "15.00",
+        "idPedido": 1
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 173,
+        "valorTotalPendenteUnitario": 0,
+        "id": 3,
         "numeroItem": 3,
         "codigoProduto": "MR2",
-        "quantidadeProduto": 7,
-        "valorUnitarioProduto": "17.30"
+        "quantidadeProduto": 10,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "17.30",
+        "idPedido": 1
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 60,
+        "valorTotalPendenteUnitario": 0,
+        "id": 4,
         "numeroItem": 4,
         "codigoProduto": "SD9",
-        "quantidadeProduto": 4,
-        "valorUnitarioProduto": "5.00"
+        "quantidadeProduto": 12,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "5.00",
+        "idPedido": 1
       }
     ]
   },
   {
     "id": 2,
-    "data": "2023-04-07T12:40:28.000Z",
+    "data": "2023-04-08T00:05:23.000Z",
     "cliente": "Fulano2",
     "valorTotal": "818.00",
     "ItensPedido": [
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 165,
+        "valorTotalPendenteUnitario": 0,
+        "id": 5,
         "numeroItem": 1,
         "codigoProduto": "HU5",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "33.00"
+        "quantidadeProduto": 5,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "33.00",
+        "idPedido": 2
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 500,
+        "valorTotalPendenteUnitario": 500,
+        "id": 6,
         "numeroItem": 2,
         "codigoProduto": "XK1",
         "quantidadeProduto": 25,
-        "valorUnitarioProduto": "20.00"
+        "quantidadeProdutoPendente": 25,
+        "valorUnitarioProduto": "20.00",
+        "idPedido": 2
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 153,
+        "valorTotalPendenteUnitario": 0,
+        "id": 7,
         "numeroItem": 3,
         "codigoProduto": "WF99",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "1.70"
+        "quantidadeProduto": 90,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "1.70",
+        "idPedido": 2
       }
     ]
   },
   {
     "id": 3,
-    "data": "2023-04-07T12:40:28.000Z",
+    "data": "2023-04-08T00:05:23.000Z",
     "cliente": "Fulano3",
     "valorTotal": "2667.00",
     "ItensPedido": [
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 390,
+        "valorTotalPendenteUnitario": 0,
+        "id": 8,
         "numeroItem": 1,
         "codigoProduto": "A99",
-        "quantidadeProduto": 36,
-        "valorUnitarioProduto": "10.00"
+        "quantidadeProduto": 39,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "10.00",
+        "idPedido": 3
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 255,
+        "valorTotalPendenteUnitario": 0,
+        "id": 9,
         "numeroItem": 2,
         "codigoProduto": "M2",
-        "quantidadeProduto": 9,
-        "valorUnitarioProduto": "17.00"
+        "quantidadeProduto": 15,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "17.00",
+        "idPedido": 3
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 1650,
+        "valorTotalPendenteUnitario": 0,
+        "id": 10,
         "numeroItem": 3,
         "codigoProduto": "K73",
-        "quantidadeProduto": 55,
-        "valorUnitarioProduto": "15.00"
+        "quantidadeProduto": 110,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "15.00",
+        "idPedido": 3
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 108,
+        "valorTotalPendenteUnitario": 0,
+        "id": 11,
         "numeroItem": 4,
         "codigoProduto": "SD9",
-        "quantidadeProduto": 15,
-        "valorUnitarioProduto": "5.40"
+        "quantidadeProduto": 20,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "5.40",
+        "idPedido": 3
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 264,
+        "valorTotalPendenteUnitario": 0,
+        "id": 12,
         "numeroItem": 5,
         "codigoProduto": "D19",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "44.00"
+        "quantidadeProduto": 6,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "44.00",
+        "idPedido": 3
       }
     ]
   },
   {
     "id": 4,
-    "data": "2023-04-07T12:40:28.000Z",
+    "data": "2023-04-08T00:05:23.000Z",
     "cliente": "Fulano4",
     "valorTotal": "6066.00",
     "ItensPedido": [
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 901,
+        "valorTotalPendenteUnitario": 0,
+        "id": 13,
         "numeroItem": 1,
         "codigoProduto": "SF49",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "5.30"
+        "quantidadeProduto": 170,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "5.30",
+        "idPedido": 4
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 4590,
+        "valorTotalPendenteUnitario": 0,
+        "id": 14,
         "numeroItem": 2,
         "codigoProduto": "VR5",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "90.00"
+        "quantidadeProduto": 51,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "90.00",
+        "idPedido": 4
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 575,
+        "valorTotalPendenteUnitario": 0,
+        "id": 15,
         "numeroItem": 3,
         "codigoProduto": "BR1",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "23.00"
+        "quantidadeProduto": 25,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "23.00",
+        "idPedido": 4
       }
     ]
   },
   {
     "id": 5,
-    "data": "2023-04-07T12:40:28.000Z",
+    "data": "2023-04-08T00:05:23.000Z",
     "cliente": "Fulano5",
     "valorTotal": "2400.00",
     "ItensPedido": [
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 660,
+        "valorTotalPendenteUnitario": 0,
+        "id": 16,
         "numeroItem": 1,
         "codigoProduto": "AM9",
-        "quantidadeProduto": 44,
-        "valorUnitarioProduto": "10.00"
+        "quantidadeProduto": 66,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "10.00",
+        "idPedido": 5
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 105,
+        "valorTotalPendenteUnitario": 105,
+        "id": 17,
         "numeroItem": 2,
         "codigoProduto": "MR5",
         "quantidadeProduto": 15,
-        "valorUnitarioProduto": "7.00"
+        "quantidadeProdutoPendente": 15,
+        "valorUnitarioProduto": "7.00",
+        "idPedido": 5
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 270,
+        "valorTotalPendenteUnitario": 0,
+        "id": 18,
         "numeroItem": 3,
         "codigoProduto": "SS3",
-        "quantidadeProduto": 7,
-        "valorUnitarioProduto": "15.00"
+        "quantidadeProduto": 18,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "15.00",
+        "idPedido": 5
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 945,
+        "valorTotalPendenteUnitario": 0,
+        "id": 19,
         "numeroItem": 4,
         "codigoProduto": "RR7",
-        "quantidadeProduto": 19,
-        "valorUnitarioProduto": "45.00"
+        "quantidadeProduto": 21,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "45.00",
+        "idPedido": 5
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 114,
+        "valorTotalPendenteUnitario": 0,
+        "id": 20,
         "numeroItem": 5,
         "codigoProduto": "FM8",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "19.00"
+        "quantidadeProduto": 6,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "19.00",
+        "idPedido": 5
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 159,
+        "valorTotalPendenteUnitario": 0,
+        "id": 21,
         "numeroItem": 6,
         "codigoProduto": "YY6",
-        "quantidadeProduto": 5,
-        "valorUnitarioProduto": "15.90"
+        "quantidadeProduto": 10,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "15.90",
+        "idPedido": 5
       },
       {
-        "valorTotalUnitario": null,
+        "valorTotalUnitario": 147,
+        "valorTotalPendenteUnitario": 0,
+        "id": 22,
         "numeroItem": 7,
         "codigoProduto": "T19",
-        "quantidadeProduto": 0,
-        "valorUnitarioProduto": "21.00"
+        "quantidadeProduto": 7,
+        "quantidadeProdutoPendente": 0,
+        "valorUnitarioProduto": "21.00",
+        "idPedido": 5
       }
     ]
   }

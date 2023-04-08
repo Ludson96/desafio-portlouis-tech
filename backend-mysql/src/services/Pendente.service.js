@@ -1,27 +1,57 @@
+const Sequelize = require('sequelize');
 const SuperService = require('./SuperService');
 const { ItensPedido } = require('../database/models');
 const NotasService = require('./Notas.service');
+const PedidosService = require('./Pedidos.service');
 
 module.exports = class PendenteService extends SuperService {
   constructor() {
     super(ItensPedido);
     this.notas = new NotasService();
+    this.pedidos = new PedidosService();
+  }
+
+  async verificaPendentes() {
+    const { payload } = await this.notas.getAllNotas();
+    payload.forEach(async ({ ItensNota }) => {
+      await Promise.all(
+        ItensNota.map(async (nota) => {
+          const item = await super.findOne({
+            idPedido: nota.idPedido,
+            numeroItem: nota.numeroItem,
+          });
+          if (item) {
+            item.quantidadeProdutoPendente -= nota.quantidadeProdutoPendente;
+            await item.save();
+          }
+        }),
+      );
+    });
+  }
+
+  async sumTotalUnit() {
+    // const { Op } = Sequelize; // biblioteca de operadores
+    const pedidos = await this.pedidos.findAll({
+      include: [{
+        model: ItensPedido,
+        as: 'ItensPedido',
+        attributes: {
+          exclude: ['id', 'idPedido', 'quantidadeProduto', 'valorTotalUnitario'],
+        },
+        // where: {
+        //   quantidadeProdutoPendente: {
+        //     [Op.gt]: 0,
+        //   },
+        // },
+      }],
+    });
+
+    console.log('🚀 ~  ~ PendenteService ~ sumTotalUnit ~ pedidos:', pedidos);
   }
 
   async getPendentes() {
-    const { payload } = await this.notas.getAllNotas();
-    payload.forEach(({ ItensNota }) => {
-      ItensNota.forEach(async (nota) => {
-        const item = await super.findOne(
-          {
-            idPedido: nota.idPedido,
-            numeroItem: nota.numeroItem,
-          },
-        );
-        item.quantidadeProduto -= nota.quantidadeProduto;
-        await item.save();
-      });
-    });
+    await this.verificaPendentes();
+    // await this.sumTotalUnit();
   }
 };
 

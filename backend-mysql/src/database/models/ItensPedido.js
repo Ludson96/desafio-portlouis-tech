@@ -22,8 +22,13 @@ module.exports = ItensPedidoModel = (sequelize, DataTypes) => {
       allowNull: false,
       field: 'quantidade_produto',
     },
+    quantidadeProdutoPendente: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      field: 'quantidade_produto_pendente',
+    },
     valorUnitarioProduto: {
-      type: DataTypes.DECIMAL(10,2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       field: 'valor_unitário_produto',
     },
@@ -31,7 +36,14 @@ module.exports = ItensPedidoModel = (sequelize, DataTypes) => {
       type: DataTypes.VIRTUAL,
       field: 'valor_total_unitário',
       get() {
-        return this.getDataValue('quantidade_produto') * this.getDataValue('valor_unitário_produto');
+        return this.getDataValue('quantidadeProduto') * this.getDataValue('valorUnitarioProduto');
+      },
+    },
+    valorTotalPendenteUnitario: {
+      type: DataTypes.VIRTUAL,
+      field: 'valor_total_unitário',
+      get() {
+        return this.getDataValue('quantidadeProdutoPendente') * this.getDataValue('valorUnitarioProduto');
       },
     },
     idPedido: {
@@ -45,10 +57,10 @@ module.exports = ItensPedidoModel = (sequelize, DataTypes) => {
       underscored: true
     });
 
-    ItensPedido.associate = (models) => {
-      ItensPedido.belongsTo(models.Pedidos, 
-        { foreignKey: 'idPedido', as: 'NaTabelaItens' });
-     };
+  ItensPedido.associate = (models) => {
+    ItensPedido.belongsTo(models.Pedidos,
+      { foreignKey: 'idPedido', as: 'NaTabelaItens' });
+  };
 
   return ItensPedido;
 };

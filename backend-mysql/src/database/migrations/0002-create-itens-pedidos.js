@@ -22,19 +22,27 @@ module.exports = {
         allowNull: false,
         field: 'quantidade_produto',
       },
+      quantidadeProdutoPendente: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: 'quantidade_produto_pendente',
+      },
       valorUnitarioProduto: {
         type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
         field: 'valor_unitário_produto',
       },
       valorTotalUnitario: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.DECIMAL(10, 2),
         field: 'valor_total_unitário',
-        get() {
-          return Sequelize.literal(
-            `quantidade_produto * valor_unitário_produto`
-          );
-        },
+        allowNull: false,
+        defaultValue: 0.00
+      },
+      valorTotalPendenteUnitario: {
+        type: Sequelize.DECIMAL(10, 2),
+        field: 'valor_total_unitário',
+        allowNull: false,
+        defaultValue: 0.00
       },
       idPedido: {
         type: Sequelize.INTEGER,
