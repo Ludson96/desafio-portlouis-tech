@@ -19,4 +19,14 @@ module.exports = class NotasService extends SuperService {
 
     return { type: null, payload: result };
   }
+
+  async createNota({ vendedor, itensNota }) {
+    const newNota = await super.create({ vendedor });
+    const newItensNota = await itensNota.map((item) =>
+      ItensNota.create({ idNota: newNota.id, ...item }));
+
+    await Promise.all(newItensNota);
+
+    return { type: null, payload: newNota };
+  }
 };

@@ -7,4 +7,6 @@ const notasController = new NotasController();
 
 router.get('/', notasController.getAllNotas);
 
+router.post('/', notasController.createNota);
+
 module.exports = router;

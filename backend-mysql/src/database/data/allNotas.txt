@@ -1,52 +1,47 @@
 [
   {
     "id": 1,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano1",
     "ItensNota": [
       {
         "idPedido": 1,
-        "numeroItem": 2,
-        "quantidadeProduto": 5
+        "numeroItem": 4,
+        "quantidadeProduto": 4
       },
       {
         "idPedido": 1,
-        "numeroItem": 4,
-        "quantidadeProduto": 4
+        "numeroItem": 2,
+        "quantidadeProduto": 5
       }
     ]
   },
   {
     "id": 2,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano2",
     "ItensNota": [
       {
         "idPedido": 2,
-        "numeroItem": 3,
-        "quantidadeProduto": 90
+        "numeroItem": 1,
+        "quantidadeProduto": 5
       },
       {
         "idPedido": 2,
-        "numeroItem": 1,
-        "quantidadeProduto": 5
+        "numeroItem": 3,
+        "quantidadeProduto": 90
       }
     ]
   },
   {
     "id": 3,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano3",
     "ItensNota": [
       {
         "idPedido": 5,
-        "numeroItem": 6,
-        "quantidadeProduto": 4
-      },
-      {
-        "idPedido": 5,
-        "numeroItem": 1,
-        "quantidadeProduto": 21
+        "numeroItem": 3,
+        "quantidadeProduto": 7
       },
       {
         "idPedido": 5,
@@ -55,20 +50,30 @@
       },
       {
         "idPedido": 5,
-        "numeroItem": 3,
-        "quantidadeProduto": 7
+        "numeroItem": 1,
+        "quantidadeProduto": 21
+      },
+      {
+        "idPedido": 5,
+        "numeroItem": 6,
+        "quantidadeProduto": 4
       }
     ]
   },
   {
     "id": 4,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano4",
     "ItensNota": [
       {
         "idPedido": 5,
-        "numeroItem": 6,
-        "quantidadeProduto": 5
+        "numeroItem": 3,
+        "quantidadeProduto": 11
+      },
+      {
+        "idPedido": 5,
+        "numeroItem": 4,
+        "quantidadeProduto": 9
       },
       {
         "idPedido": 5,
@@ -77,30 +82,20 @@
       },
       {
         "idPedido": 5,
-        "numeroItem": 4,
-        "quantidadeProduto": 9
-      },
-      {
-        "idPedido": 5,
-        "numeroItem": 3,
-        "quantidadeProduto": 11
+        "numeroItem": 6,
+        "quantidadeProduto": 5
       }
     ]
   },
   {
     "id": 5,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano5",
     "ItensNota": [
       {
         "idPedido": 3,
-        "numeroItem": 1,
-        "quantidadeProduto": 9
-      },
-      {
-        "idPedido": 3,
-        "numeroItem": 4,
-        "quantidadeProduto": 15
+        "numeroItem": 2,
+        "quantidadeProduto": 5
       },
       {
         "idPedido": 3,
@@ -109,20 +104,25 @@
       },
       {
         "idPedido": 3,
-        "numeroItem": 2,
-        "quantidadeProduto": 5
+        "numeroItem": 4,
+        "quantidadeProduto": 15
+      },
+      {
+        "idPedido": 3,
+        "numeroItem": 1,
+        "quantidadeProduto": 9
       }
     ]
   },
   {
     "id": 6,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano6",
     "ItensNota": [
       {
         "idPedido": 1,
-        "numeroItem": 1,
-        "quantidadeProduto": 9
+        "numeroItem": 3,
+        "quantidadeProduto": 3
       },
       {
         "idPedido": 1,
@@ -131,25 +131,20 @@
       },
       {
         "idPedido": 1,
-        "numeroItem": 3,
-        "quantidadeProduto": 3
+        "numeroItem": 1,
+        "quantidadeProduto": 9
       }
     ]
   },
   {
     "id": 7,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano7",
     "ItensNota": [
       {
         "idPedido": 4,
-        "numeroItem": 1,
-        "quantidadeProduto": 170
-      },
-      {
-        "idPedido": 4,
-        "numeroItem": 2,
-        "quantidadeProduto": 51
+        "numeroItem": 3,
+        "quantidadeProduto": 25
       },
       {
         "idPedido": 1,
@@ -158,25 +153,25 @@
       },
       {
         "idPedido": 4,
-        "numeroItem": 3,
-        "quantidadeProduto": 25
+        "numeroItem": 2,
+        "quantidadeProduto": 51
+      },
+      {
+        "idPedido": 4,
+        "numeroItem": 1,
+        "quantidadeProduto": 170
       }
     ]
   },
   {
     "id": 8,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano8",
     "ItensNota": [
       {
         "idPedido": 5,
-        "numeroItem": 5,
-        "quantidadeProduto": 6
-      },
-      {
-        "idPedido": 5,
-        "numeroItem": 1,
-        "quantidadeProduto": 22
+        "numeroItem": 7,
+        "quantidadeProduto": 7
       },
       {
         "idPedido": 5,
@@ -185,30 +180,25 @@
       },
       {
         "idPedido": 5,
-        "numeroItem": 7,
-        "quantidadeProduto": 7
+        "numeroItem": 1,
+        "quantidadeProduto": 22
+      },
+      {
+        "idPedido": 5,
+        "numeroItem": 5,
+        "quantidadeProduto": 6
       }
     ]
   },
   {
     "id": 9,
-    "data": "2023-04-07T23:51:58.000Z",
+    "data": "2023-04-08T17:15:53.000Z",
     "vendedor": "Fulano9",
     "ItensNota": [
       {
         "idPedido": 3,
-        "numeroItem": 1,
-        "quantidadeProduto": 3
-      },
-      {
-        "idPedido": 3,
-        "numeroItem": 3,
-        "quantidadeProduto": 55
-      },
-      {
-        "idPedido": 3,
-        "numeroItem": 2,
-        "quantidadeProduto": 6
+        "numeroItem": 4,
+        "quantidadeProduto": 5
       },
       {
         "idPedido": 3,
@@ -217,8 +207,18 @@
       },
       {
         "idPedido": 3,
-        "numeroItem": 4,
-        "quantidadeProduto": 5
+        "numeroItem": 2,
+        "quantidadeProduto": 6
+      },
+      {
+        "idPedido": 3,
+        "numeroItem": 3,
+        "quantidadeProduto": 55
+      },
+      {
+        "idPedido": 3,
+        "numeroItem": 1,
+        "quantidadeProduto": 3
       }
     ]
   }

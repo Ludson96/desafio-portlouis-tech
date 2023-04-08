@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const SuperService = require('./SuperService');
-const { ItensPedido } = require('../database/models');
+const { ItensPedido, Pedidos } = require('../database/models');
 const NotasService = require('./Notas.service');
 const PedidosService = require('./Pedidos.service');
 
@@ -8,7 +8,7 @@ module.exports = class PendenteService extends SuperService {
   constructor() {
     super(ItensPedido);
     this.notas = new NotasService();
-    this.pedidos = new PedidosService();
+    // this.pedidos = new PedidosService();
   }
 
   async verificaPendentes() {
@@ -30,19 +30,19 @@ module.exports = class PendenteService extends SuperService {
   }
 
   async sumTotalUnit() {
-    // const { Op } = Sequelize; // biblioteca de operadores
-    const pedidos = await this.pedidos.findAll({
+    const { Op } = Sequelize; // biblioteca de operadores
+    const pedidos = await Pedidos.findAll({
       include: [{
         model: ItensPedido,
         as: 'ItensPedido',
         attributes: {
           exclude: ['id', 'idPedido', 'quantidadeProduto', 'valorTotalUnitario'],
         },
-        // where: {
-        //   quantidadeProdutoPendente: {
-        //     [Op.gt]: 0,
-        //   },
-        // },
+        where: {
+          quantidadeProdutoPendente: {
+            [Op.gt]: 0,
+          },
+        },
       }],
     });
 
@@ -51,7 +51,7 @@ module.exports = class PendenteService extends SuperService {
 
   async getPendentes() {
     await this.verificaPendentes();
-    // await this.sumTotalUnit();
+    await this.sumTotalUnit();
   }
 };
 
