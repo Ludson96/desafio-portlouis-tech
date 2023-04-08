@@ -5,8 +5,8 @@ import processaItensPendentes, {
 import {
   allPedidos,
   itensPendentes,
-  notaNIExistAndMaior, notaNIExistAndSmaller, notaNINotExist, outDiferencaQuantity,
-  outGetTotalQuantidade, outPedidosAgrupados, outProcessaItensPendentes, pedido, pedidos, pendentes,
+  notaNIExistAndMaior, notaNIExistAndSmaller, outDiferencaQuantity,
+  outGetTotalQuantidade, outPedidosAgrupados, outProcessaItensPendentes, pedidos,
 } from '../../mocks/processPendingItems.mock';
 
 describe('Teste de unidade processPendingItems', function () {
@@ -26,18 +26,16 @@ describe('Teste de unidade processPendingItems', function () {
     it(
       'função compareQuantidades verifica a diferença de quantidade na nota para o pedido',
       function () {
-        const quantitySmaller = compareQuantidades(pedido, notaNIExistAndSmaller);
-        const quantityEqual = compareQuantidades(pedido, notaNINotExist);
+        const quantitySmaller = compareQuantidades(outGetTotalQuantidade, notaNIExistAndSmaller);
 
         expect(quantitySmaller).toStrictEqual(outDiferencaQuantity);
-        expect(quantityEqual).toBe(null);
       },
     );
 
     it('função getPendentes retorna todos os itens pendentes', function () {
-      getPendentes(allPedidos, outGetTotalQuantidade, pendentes);
+      const itensPendentes2 = getPendentes(allPedidos, outGetTotalQuantidade);
 
-      expect(pendentes).toStrictEqual(itensPendentes);
+      expect(itensPendentes2).toStrictEqual(itensPendentes);
     });
 
     it('função processaItensPendentes retorna todos os itens pendentes', async function () {
@@ -51,7 +49,7 @@ describe('Teste de unidade processPendingItems', function () {
     it(
       'função compareQuantidades deve lançar uma exceção se a nota for maior que pedido',
       function () {
-        expect(() => compareQuantidades(pedido, notaNIExistAndMaior))
+        expect(() => compareQuantidades(outGetTotalQuantidade, notaNIExistAndMaior))
           .toThrow('Nota emitida com numero de quantidade maior do que o pedido');
       },
     );

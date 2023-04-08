@@ -157,6 +157,21 @@ export const pedidosPendentes = [
 
 export const allPedidosPendentes = [
   {
+    id: '2',
+    valor_total_pedido: '818.00',
+    saldo_valor: '500.00',
+    pendentes: [
+      {
+        número_item: 2,
+        código_produto: 'XK1',
+        valor_unitário_produto: '20.00',
+        quantidade_faltante: 25,
+        valor_total_unitário: '500.00',
+        valor_total_pendente: '500.00',
+      },
+    ],
+  },
+  {
     id: '3',
     valor_total_pedido: '2667.00',
     saldo_valor: '413.00',
@@ -190,7 +205,7 @@ export const allPedidosPendentes = [
   {
     id: '5',
     valor_total_pedido: '2400.00',
-    saldo_valor: '450.90',
+    saldo_valor: '555.90',
     pendentes: [
       {
         número_item: 1,
@@ -199,6 +214,14 @@ export const allPedidosPendentes = [
         quantidade_faltante: 3,
         valor_total_unitário: '660.00',
         valor_total_pendente: '30.00',
+      },
+      {
+        número_item: 2,
+        código_produto: 'MR5',
+        valor_unitário_produto: '7.00',
+        quantidade_faltante: 15,
+        valor_total_unitário: '105.00',
+        valor_total_pendente: '105.00',
       },
       {
         número_item: 4,
