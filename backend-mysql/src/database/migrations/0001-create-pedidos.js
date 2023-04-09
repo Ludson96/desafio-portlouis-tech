@@ -19,7 +19,13 @@ module.exports = {
       type: Sequelize.DECIMAL(10, 2),
       allowNull: false,
       field: 'valor_total',
-    }
+    },
+    saldoValor: {
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: false,
+      defaultValue: 0.00,
+      field: 'saldo_valor',
+    },
   }),
 
   down: async (queryInterface, _Sequelize) => queryInterface.dropTable('pedidos'),

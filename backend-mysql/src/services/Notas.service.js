@@ -1,6 +1,6 @@
 const SuperService = require('./SuperService');
 const { Notas, ItensNota } = require('../database/models');
-const { ItensPedido } = require('../database/models/index');
+const { Pedidos, ItensPedido } = require('../database/models/index');
 
 module.exports = class NotasService extends SuperService {
   constructor() {
@@ -23,17 +23,26 @@ module.exports = class NotasService extends SuperService {
 
   async createNota({ vendedor, itensNota }) {
     const newNota = await super.create({ vendedor });
-    await itensNota.forEach(async (item) => {
-      ItensNota.create({ idNota: newNota.id, ...item });
-      const itemN = await ItensPedido.findOne({
+    await itensNota.forEach(async (nota) => {
+      ItensNota.create({ idNota: newNota.id, ...nota });
+      const itemPedido = await ItensPedido.findOne({
         where: {
-          idPedido: item.idPedido,
-          numeroItem: item.numeroItem,
+          idPedido: nota.idPedido,
+          numeroItem: nota.numeroItem,
         },
       });
-      if (itemN) {
-        itemN.quantidadeProdutoPendente -= item.quantidadeProduto;
-        await itemN.save();
+      const pedido = await Pedidos.findOne({
+        where: {
+          id: nota.idPedido,
+        },
+      });
+      if (itemPedido) {
+        itemPedido.quantidadeProdutoPendente -= nota.quantidadeProduto;
+        await itemPedido.save();
+      }
+      if (pedido) {
+        pedido.saldoValor = itemPedido.quantidadeProdutoPendente * itemPedido.valorUnitarioProduto;
+        await pedido.save();
       }
     });
 

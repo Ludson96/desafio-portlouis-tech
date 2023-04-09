@@ -20,6 +20,12 @@ module.exports = PedidosModel = (sequelize, DataTypes) => {
       defaultValue: 0.00,
       field: 'valor_total',
     },
+    saldoValor: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+      defaultValue: 0.00,
+      field: 'saldo_valor',
+    },
   },
     {
       timestamps: false,

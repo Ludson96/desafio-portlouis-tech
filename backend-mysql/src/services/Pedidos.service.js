@@ -12,7 +12,13 @@ module.exports = class PedidosService extends SuperService {
         model: ItensPedido,
         as: 'ItensPedido',
         attributes: {
-          exclude: ['id', 'idPedido', 'quantidadeProdutoPendente', 'valorTotalPendenteUnitario'],
+          exclude: [
+            'id',
+            'idPedido',
+            'quantidadeProdutoPendente',
+            'valorTotalPendenteUnitario',
+            'saldoValor',
+          ],
         },
       }],
     });
@@ -37,6 +43,7 @@ module.exports = class PedidosService extends SuperService {
     });
     newPedido.valorTotal = valorTotal;
     await newPedido.save();
-    return { type: null, payload: newPedido };
+    const { saldoValor: _unused, ...payload } = newPedido.toJSON();
+    return { type: null, payload };
   }
 };
