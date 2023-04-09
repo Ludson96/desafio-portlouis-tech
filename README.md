@@ -39,6 +39,7 @@ Repositório possui dois projetos para o desafio técnico o **backend-txt** foi 
 [![Solid][Solid-logo]][Solid-url]
 [![Nodemon][Nodemon-logo]][Nodemon-url]
 [![.ENV][.ENV-logo]][.ENV-url]
+[![AJV][AJV-logo]][AJV-url]
 
 ## O que foi desenvolvido
 
@@ -188,3 +189,5 @@ Neste projeto, implementei um programa cuja execução cruza pedidos e notas ger
 [Solid-logo]: https://img.shields.io/badge/Solid-2c4f7c?style=for-the-badge&logo=solid&logoColor=c8c9cb
 [Sinon-logo]: https://img.shields.io/badge/sinon.js-323330?style=for-the-badge&logo=sinon
 [Sinon-url]: https://www.npmjs.com/package/sinon
+[AJV-logo]: https://img.shields.io/badge/Ajv-23C8D2.svg?style=for-the-badge&logo=Ajv&logoColor=white
+[AJV-url]: https://ajv.js.org/
