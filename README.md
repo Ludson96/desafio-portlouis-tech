@@ -18,7 +18,7 @@ Repositório possui dois projetos para o desafio técnico o **backend-txt** foi 
 - Para testes foram utilizados `Jest`, `Mocha`, `Chai` e `Sinon`;
 - Para organização e padronização foi utilizado o `ESLint`;
 - Para utilizar o MySQL foi utilizado docker para conteinerização do mesmo;
-- Para validação foi utilizado o módulo Node.js [`Joi`](https://joi.dev/api/?v=17.9.1);
+- Para validação foi utilizado o módulo Node.js [`AJV`](https://ajv.js.org/);
 - Utilizei o modulo `fs` em sua versão assíncrona para não ter nenhum tipo de atraso na resposta. Coloquei uma resposta e uma criação de arquivo conforme a proposta inicial;
 - Foi utilizadoCommonJS ao invés de ES6, por conta do Sequelize, funciona com uma melhor organização.
 
@@ -81,7 +81,7 @@ Neste projeto, implementei uma API REST com CRUD, na qual é possível cadastrar
 
 1. Utilize algum cliente de teste de API, eu utilizei o [Thunder Client](https://www.thunderclient.com/)
 
-1. Será criado 4 arquivos de texto na pasta `src/database/data`:
+1. Será criado 3 arquivos de texto na pasta `src/database/data`:
 
 - `allNotas.txt` - arquivo com todas as notas;
 - `allPedidos.txt` - arquivo com todos os pedidos;

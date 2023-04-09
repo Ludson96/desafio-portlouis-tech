@@ -4,8 +4,8 @@
     "trybe-backend"
   ],
   "ignorePatterns": [
-    "/src/database/"
-    // "/src/tests/",
+    "/src/database/",
+    "__tests__"
     // "jest.config.js",
     // "/src/coverage"
   ],

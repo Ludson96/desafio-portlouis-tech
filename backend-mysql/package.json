@@ -6,7 +6,9 @@
   "scripts": {
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "start": "node .",
-    "dev": "nodemon ."
+    "dev": "nodemon .",
+    "test": "NODE_ENV=test jest",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",

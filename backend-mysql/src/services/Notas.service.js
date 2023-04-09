@@ -23,7 +23,7 @@ module.exports = class NotasService extends SuperService {
 
   async createNota({ vendedor, itensNota }) {
     const newNota = await super.create({ vendedor });
-    await itensNota.forEach(async (nota) => {
+    const newItensPedido = await itensNota.map(async (nota) => {
       ItensNota.create({ idNota: newNota.id, ...nota });
       const itemPedido = await ItensPedido.findOne({
         where: {
@@ -45,6 +45,8 @@ module.exports = class NotasService extends SuperService {
         await pedido.save();
       }
     });
+
+    await Promise.all(newItensPedido);
 
     return { type: null, payload: newNota };
   }
