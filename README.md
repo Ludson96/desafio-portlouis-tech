@@ -175,13 +175,11 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 
 </details>
 
-  </details>
+</details>
 
-  <details>
+***
 
-  ---
-
-  </br>
+<details>
 
   <summary>README do backend-txt</summary>
 
