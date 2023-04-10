@@ -91,11 +91,11 @@ Para rodar esse projeto, atente-se as variáveis de ambiente no seu .env. Existe
 
 ## Diagrama ER
 
-<center>
+<div align= 'center'>
 
 ![Diagrama de relacionamentos das tabelas](Diagrama.jpeg)
 
-</center>
+</div>
 
 ## Endpoints
 
