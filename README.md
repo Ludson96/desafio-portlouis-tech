@@ -118,7 +118,7 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 - URL: `http://localhost:PORT/pedido`
 - O corpo da requisição deve seguir o formato abaixo:
 
-``` bash
+``` json
 {
   "cliente": "Fulano10",
   "itensPedido":[
@@ -149,7 +149,7 @@ Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. 
 - URL: `http://localhost:PORT/nota`
 - O corpo da requisição deve seguir o formato abaixo:
 
-``` bash
+``` json
 {
   "vendedor": "Fulano1",
   "itensNota":[
