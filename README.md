@@ -2,7 +2,7 @@
 
 Repositório possui dois projetos para o desafio técnico o **backend-txt** foi o que me desafiaram fazer seguindo as orientações propostas, e o **backend-mysql** é como eu faria no dia a dia utilizando o banco de dados MySQL e o ORM Sequelize. Reforço que normalmente não crio repositórios com dois projetos, como podem olhar no meu [Git Hub][Git Hub-url], mas criei dessa forma para não correr o risco de não ver o com o MySQL. Abaixo segue o README referente a cada projeto.
 
-<details>
+<!-- <details> -->
 
   <summary>README do backend-mysql</summary>
 
@@ -91,9 +91,11 @@ Para rodar esse projeto, atente-se as variáveis de ambiente no seu .env. Existe
 
 ## Diagrama ER
 
+<center>
+
 ![Diagrama de relacionamentos das tabelas](Diagrama.jpeg)
 
-> _Imagem disponibilizada pela Trybe_
+</center>
 
 ## Endpoints
 
