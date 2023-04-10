@@ -41,8 +41,10 @@ module.exports = class PedidosService extends SuperService {
         },
       );
     });
-    newPedido.valorTotal = valorTotal;
-    await newPedido.save();
+    if (newPedido) {
+      newPedido.valorTotal = valorTotal;
+      await newPedido.save();
+    }
     const { saldoValor: _unused, ...payload } = newPedido.toJSON();
     return { type: null, payload };
   }

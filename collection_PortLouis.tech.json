@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "PortLouis.tech",
+    "dateExported": "2023-04-10T11:40:45.553Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "551ec512-2647-4dbd-bd7f-63686d46337b",
+            "colId": "1c537c1c-efae-4e4f-b4d4-eff5c660deb6",
+            "containerId": "",
+            "name": "retorna todos os pedidos",
+            "url": "localhost:3000/pedido",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-04-06T12:48:22.238Z",
+            "modified": "2023-04-06T13:46:49.656Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c1b34f0b-98cc-4257-8036-0bcaa6545d33",
+            "colId": "1c537c1c-efae-4e4f-b4d4-eff5c660deb6",
+            "containerId": "",
+            "name": "retorna todas as notas",
+            "url": "localhost:3000/nota",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-04-06T18:44:41.692Z",
+            "modified": "2023-04-06T18:45:04.244Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4408cebd-5660-48f6-b151-f3b4c855d2ec",
+            "colId": "1c537c1c-efae-4e4f-b4d4-eff5c660deb6",
+            "containerId": "",
+            "name": "retorna pedidos pendentes",
+            "url": "localhost:3000/pendente",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-04-06T20:35:16.916Z",
+            "modified": "2023-04-06T20:35:25.766Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "880e0641-6621-45fd-92dc-c6dd2796c0f9",
+            "colId": "1c537c1c-efae-4e4f-b4d4-eff5c660deb6",
+            "containerId": "",
+            "name": "Criar uma nota",
+            "url": "localhost:3000/nota",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-04-08T17:35:16.488Z",
+            "modified": "2023-04-09T20:10:46.306Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"vendedor\": \"Fulano1\",\n  \"itensNota\":[\n    {\n    \"idPedido\": 1,\n    \"numeroItem\": 1,\n    \"quantidadeProduto\": 1\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1efed5e2-4c88-4422-8f90-dc1c641e3d19",
+            "colId": "1c537c1c-efae-4e4f-b4d4-eff5c660deb6",
+            "containerId": "",
+            "name": "Criar um pedido",
+            "url": "localhost:3000/pedido",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-04-08T18:06:43.596Z",
+            "modified": "2023-04-09T20:32:53.858Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cliente\": \"Fulano10\",\n  \"itensPedido\":[\n    {\n    \"numeroItem\": 1,\n    \"codigoProduto\": \"K22\",\n    \"quantidadeProduto\": 10,\n    \"valorUnitarioProduto\": 10.00\n    }\n  ]\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

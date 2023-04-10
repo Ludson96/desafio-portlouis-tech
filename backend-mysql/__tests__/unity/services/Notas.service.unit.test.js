@@ -1,8 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
-const { Notas, ItensPedido } = require('../../src/database/models');
-const NotasService = require('../../src/services/Notas.service');
-const { newNota, outPayloadGetAllNotas, paramCreateNota, outCreate, outCreateNota, itemPedido } = require('../../mocks/Notas.mock');
+const { Notas, ItensPedido } = require('../../../src/database/models');
+const NotasService = require('../../../src/services/Notas.service');
+const { newNota, outPayloadGetAllNotas, paramCreateNota, outCreate, outCreateNota, itemPedido } = require('../../../mocks/Notas.mock');
 
 const notasService = new NotasService();
 

@@ -2,7 +2,7 @@
 
 Repositório possui dois projetos para o desafio técnico o **backend-txt** foi o que me desafiaram fazer seguindo as orientações propostas, e o **backend-mysql** é como eu faria no dia a dia utilizando o banco de dados MySQL e o ORM Sequelize. Reforço que normalmente não crio repositórios com dois projetos, como podem olhar no meu [Git Hub][Git Hub-url], mas criei dessa forma para não correr o risco de não ver o com o MySQL. Abaixo segue o README referente a cada projeto.
 
-<details>
+<!-- <details> -->
 
   <summary>README do backend-mysql</summary>
 
@@ -45,6 +45,10 @@ Repositório possui dois projetos para o desafio técnico o **backend-txt** foi 
 
 Neste projeto, implementei uma API REST com CRUD, na qual é possível cadastrar notas e pedidos e resgatar notas, pedidos e itens pendentes.
 
+## Variáveis de Ambiente
+
+Para rodar esse projeto, atente-se as variáveis de ambiente no seu .env. Existe um arquivo `.env.example` com as instruções de configurações. Só basta alterar a senha (password), para a senha do seu mysql e caso esteja usando o docker-compose a senha já está informada.
+
 ## Instruções para instalar e rodar
 
 1. Clone o repo:
@@ -71,9 +75,7 @@ Neste projeto, implementei uma API REST com CRUD, na qual é possível cadastrar
     docker-compose up -d 
     ```
 
-1. Existe um arquivo `.env.example`, você deve preencher ele para configuração do seu mysql com o database, só basta alterar a senha (password), para a senha do seu mysql e caso esteja usando o docker-compose a senha já está informada:
-
-1. Caso queira rodar os testes utilize o comando:
+1. Caso queira rodar os testes utilize o comando (por conta dos projetos da Trybe e de outro desafio técnico não deu para fazer todos os testes, mas reforço que tenho conhecimento para realizá-los):
 
     ```bash
     npm test ou npm test <nome do arquivo de teste>
@@ -87,9 +89,97 @@ Neste projeto, implementei uma API REST com CRUD, na qual é possível cadastrar
 - `allPedidos.txt` - arquivo com todos os pedidos;
 - `pedidosPendentes.txt` - arquivo final com pedidos pendentes, esse é o arquivo final e o **objetivo da aplicação**.
 
+## Diagrama ER
+
+![Diagrama de relacionamentos das tabelas](Diagrama.jpeg)
+
+> _Imagem disponibilizada pela Trybe_
+
+## Endpoints
+
+Abaixo você pode conferir um detalhamento dos endpoints utilizados no projeto. Para realizar as requisições HTTP e consultar o comportamento de cada endpoint, você pode utilizar a extensão [Thunder Client](https://www.thunderclient.com/).
+
+> **OBS: Caso utilize a extensão thunder client no vscode, importe o arquivo `collection_PortLouis.tech.json` que está na raiz do projeto, ele já possui os endpoints cadastrados.**
+
+<details>
+
+  <summary><strong>Pedidos</strong></summary>
+
+### GET /pedido
+
+- Retorna todos os pedidos registrados no banco de dados.
+- URL: `http://localhost:PORT/pedido`
+
+### POST /pedido
+
+- Adiciona um novo pedido ao banco de dados.
+- URL: `http://localhost:PORT/pedido`
+- O corpo da requisição deve seguir o formato abaixo:
+
+``` bash
+{
+  "cliente": "Fulano10",
+  "itensPedido":[
+    {
+    "numeroItem": 1,
+    "codigoProduto": "K22",
+    "quantidadeProduto": 10,
+    "valorUnitarioProduto": 10.00
+    }
+  ]
+}
+```
+
+</details>
+
+<details>
+
+  <summary><strong>Notas</strong></summary>
+
+### GET /nota
+
+- Retorna todas as notas registrados no banco de dados.
+- URL: `http://localhost:PORT/nota`
+
+### POST /nota
+
+- Adiciona uma nova nota ao banco de dados.
+- URL: `http://localhost:PORT/nota`
+- O corpo da requisição deve seguir o formato abaixo:
+
+``` bash
+{
+  "vendedor": "Fulano1",
+  "itensNota":[
+    {
+    "idPedido": 1,
+    "numeroItem": 1,
+    "quantidadeProduto": 1
+    }
+  ]
+}
+```
+
+</details>
+
+<details>
+
+  <summary><strong>Pedidos Pendentes</strong></summary>
+
+### GET /pendente
+
+- Retorna todos os pedidos pendentes registrados no banco de dados.
+- URL: `http://localhost:PORT/pendentes`
+
+</details>
+
   </details>
 
   <details>
+
+  ---
+
+  </br>
 
   <summary>README do backend-txt</summary>
 
